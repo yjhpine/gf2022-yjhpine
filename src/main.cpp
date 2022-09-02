@@ -6,7 +6,7 @@
 #include "main.h"
 
 
-SDL_Window*		g_pWindow = 0;
+SDL_Window*		g_pWindow = 0; //20211067 양정환
 SDL_Renderer*	g_pRenderer = 0;
 
 SDL_Texture*	g_pTexureImage;
