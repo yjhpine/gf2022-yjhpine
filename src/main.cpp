@@ -23,9 +23,16 @@ int main(int argc, char* args[])
 	{
 		return 1;
 	}
-	while (g_bRunning)
+	int a = 0;//과제 - 탈출을 위한 변수
+	while (g_bRunning)//추가 실습 - !g_bRunning이라면 반복이 바로 종료됨
 	{
 		render();
+		SDL_Delay(500);
+		a++;
+		if (a == 10)//과제 - 변수 a가 10이 된다면 g_bRunning을 false로 바꾸고 while문 종료
+		{
+			g_bRunning = false;
+		}
 	}
 	SDL_Quit();
 	return 0;
@@ -52,7 +59,7 @@ void render()
 	SDL_RenderClear(g_pRenderer);
 	SDL_RenderPresent(g_pRenderer);
 
-	SDL_SetRenderDrawColor(g_pRenderer, rand() % 256, rand() % 256, rand() % 256, 255);
+	SDL_SetRenderDrawColor(g_pRenderer, rand() % 256, rand() % 256, rand() % 256, 255);//추가 실습 - 색을 랜덤으로 바꿈
 	SDL_Delay(1000);
 }
 
