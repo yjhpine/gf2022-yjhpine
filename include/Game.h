@@ -1,15 +1,12 @@
+#ifndef __Game__
+#define __Game__
+
 #include"SDL2/SDL.h"
-#pragma once
 
 class Game
 {
 public:
-	Game() 
-	{ 
-		m_bRunning = true; 
-		m_pWindow = 0;
-		m_pRenderer = 0;
-	}
+	Game() { }
 	~Game() { }
 
 	bool init(const char* title, int xpos, int ypos, int w, int h, int flags);
@@ -24,3 +21,5 @@ private:
 	SDL_Renderer* m_pRenderer;
 	bool m_bRunning;
 };
+
+#endif /* __Game__ */

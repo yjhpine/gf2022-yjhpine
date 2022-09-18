@@ -41,7 +41,7 @@ void Game::render()
 void Game::handleEvents()
 {
 	SDL_Event event;
-	if (SDL_PollEvent(&event))
+	while (SDL_PollEvent(&event)) //이벤트가 감지될 때 까지 계속 루프??
 	{
 		switch (event.type)
 		{
