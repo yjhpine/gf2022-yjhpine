@@ -257,6 +257,8 @@
     <Library Include="3rdParty\SDL\lib\x64\SDL2_ttf.lib" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="assets\Assets\animate.bmp" />
+    <Image Include="assets\Assets\fishtitle.png" />
     <Image Include="assets\Assets\rider.bmp" />
     <Image Include="assets\rider.bmp" />
   </ItemGroup>

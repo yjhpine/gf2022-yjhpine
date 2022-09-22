@@ -1,4 +1,5 @@
 #include "Game.h"
+#include <stdio.h>
 bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
@@ -9,7 +10,7 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 			m_pRenderer = SDL_CreateRenderer(m_pWindow, -1, 0);
 			if (m_pRenderer != 0)
 			{
-				SDL_SetRenderDrawColor(m_pRenderer, 255, 255, 255, 255);
+				SDL_SetRenderDrawColor(m_pRenderer, 0, 0, 0, 0);
 			}
 			else
 			{
@@ -37,13 +38,28 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 
 	m_destinationRectangle.x = m_sourceRectangle.x = 0;
 	m_destinationRectangle.y = m_sourceRectangle.y = 0;
+	
+	a = 0;
 
 	m_bRunning = true;
 	return true;
 }
 void Game::update()
 {
-
+	if (m_destinationRectangle.x == 0)//과제1 - 좌우로 반복 이동하기
+		a = 1;
+	else if (m_destinationRectangle.x > 520)
+		a = 2;
+	if (a == 1)
+	{
+		m_destinationRectangle.x++;
+		SDL_Delay(10);
+	}
+	else if (a == 2)
+	{
+		m_destinationRectangle.x--;
+		SDL_Delay(10);
+	}
 }
 void Game::render()
 {
