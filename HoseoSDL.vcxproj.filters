@@ -317,4 +317,12 @@
     <Library Include="3rdParty\SDL\lib\x64\SDL2.lib" />
     <Library Include="3rdParty\SDL\lib\x64\SDL2_gfx.lib" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\rider.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="assets\Assets\rider.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
