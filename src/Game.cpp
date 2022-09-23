@@ -1,5 +1,5 @@
 #include "Game.h"
-#include <stdio.h>
+
 bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
@@ -10,7 +10,7 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 			m_pRenderer = SDL_CreateRenderer(m_pWindow, -1, 0);
 			if (m_pRenderer != 0)
 			{
-				SDL_SetRenderDrawColor(m_pRenderer, 0, 0, 0, 0);
+				SDL_SetRenderDrawColor(m_pRenderer, 255, 255, 255, 255);
 			}
 			else
 			{
@@ -26,6 +26,7 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 	{
 		return false;
 	}
+	
 
 	SDL_Surface* pTempSurface = SDL_LoadBMP("Assets/rider.bmp");
 	m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface);
@@ -38,7 +39,22 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 
 	m_destinationRectangle.x = m_sourceRectangle.x = 0;
 	m_destinationRectangle.y = m_sourceRectangle.y = 0;
-	
+
+	SDL_Surface* surface = SDL_LoadBMP("Assets/animate.bmp");
+	texture = SDL_CreateTextureFromSurface(m_pRenderer, surface);
+	SDL_FreeSurface(surface);
+
+	SDL_QueryTexture(texture, NULL, NULL, &SR.w, &SR.h);
+
+	DR.w = SR.w;
+	DR.h = SR.h;
+
+	DR.x = SR.x = 0;
+	DR.y = SR.y = 0;
+
+	SCREEN_WIDTH = 640;
+	SCREEN_HEIGHT = 480;
+
 	a = 0;
 
 	m_bRunning = true;
@@ -53,18 +69,38 @@ void Game::update()
 	if (a == 1)
 	{
 		m_destinationRectangle.x++;
-		SDL_Delay(10);
+		SDL_Delay(3);
 	}
 	else if (a == 2)
 	{
 		m_destinationRectangle.x--;
-		SDL_Delay(10);
+		SDL_Delay(3);
 	}
 }
 void Game::render()
 {
+	SDL_SetRenderDrawColor(m_pRenderer, 255, 255, 255, 255);
 	SDL_RenderClear(m_pRenderer);
+	SDL_RenderCopy(m_pRenderer, texture, &SR, &DR);
 	SDL_RenderCopy(m_pRenderer, m_pTexture, &m_sourceRectangle, &m_destinationRectangle);
+	
+
+	SDL_SetRenderDrawColor(m_pRenderer, 255, 0, 0, 255);
+	SDL_Rect fillRect = { SCREEN_WIDTH / 4, SCREEN_HEIGHT / 4, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 };
+	SDL_RenderFillRect(m_pRenderer, &fillRect);
+
+	SDL_SetRenderDrawColor(m_pRenderer, 0, 255, 0, 255);
+	SDL_Rect outlineRect = { SCREEN_WIDTH / 6, SCREEN_HEIGHT / 6, SCREEN_WIDTH * 2 / 3, SCREEN_HEIGHT * 2 / 3 };
+	SDL_RenderDrawRect(m_pRenderer, &outlineRect);
+
+	SDL_SetRenderDrawColor(m_pRenderer, 0, 0, 255, 255);	
+	SDL_RenderDrawLine(m_pRenderer, 0, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT / 2);
+
+	SDL_SetRenderDrawColor(m_pRenderer, 255, 255, 0, 255);
+	for (int i = 0; i < SCREEN_HEIGHT; i += 4)
+	{
+		SDL_RenderDrawPoint(m_pRenderer, SCREEN_WIDTH / 2, i);
+	}
 	SDL_RenderPresent(m_pRenderer);
 }
 void Game::handleEvents()
@@ -86,7 +122,7 @@ void Game::clean()
 {
 	SDL_DestroyWindow(m_pWindow);
 	SDL_DestroyRenderer(m_pRenderer);
-	SDL_Quit();
+	SDL_Quit(); 
 }
 bool Game::running()
 {

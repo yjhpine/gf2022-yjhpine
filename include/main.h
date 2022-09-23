@@ -5,5 +5,3 @@
 #include <SDL2/SDL2_gfxPrimitives.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_mixer.h>
-#include <amp_graphics.h>
-#include <stdbool.h>
