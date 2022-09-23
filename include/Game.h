@@ -2,6 +2,7 @@
 #define __Game__
 
 #include"SDL2/SDL.h"
+#include "SDL2/SDL_ttf.h"
 
 class Game
 {
@@ -17,7 +18,8 @@ public:
 	bool running();
 	void handleEvents();
 	void clean();
-	
+	void DrawSurface(SDL_Surface* dst, int x, int y, SDL_Surface* src);
+
 private:
 	SDL_Window* m_pWindow;
 	SDL_Renderer* m_pRenderer; 
@@ -30,10 +32,11 @@ private:
 	SDL_Rect m_sourceRectangle;
 	SDL_Rect m_destinationRectangle;
 
-	SDL_Texture* texture;
-	SDL_Rect SR;
-	SDL_Rect DR;
-	
+	SDL_Surface* message;
+
+	TTF_Font* font;
+	SDL_Color textColor = { 0, 0, 0 };
+	char str[50] = "¾È³ç? SDL_ttf!";
 
 	int a;
 };
