@@ -3,13 +3,12 @@
 
 #include"SDL2/SDL.h"
 #include "SDL2/SDL_ttf.h"
+#include <iostream>
 
 class Game
 {
 public:
-	Game() 
-	{
-	}
+	Game() { }
 	~Game() { }
 
 	bool init(const char* title, int xpos, int ypos, int w, int h, int flags);
@@ -18,11 +17,10 @@ public:
 	bool running();
 	void handleEvents();
 	void clean();
-	void DrawSurface(SDL_Surface* dst, int x, int y, SDL_Surface* src);
 
 private:
 	SDL_Window* m_pWindow;
-	SDL_Renderer* m_pRenderer; 
+	SDL_Renderer* m_pRenderer;
 	bool m_bRunning;
 
 	int SCREEN_WIDTH;
@@ -32,13 +30,7 @@ private:
 	SDL_Rect m_sourceRectangle;
 	SDL_Rect m_destinationRectangle;
 
-	SDL_Surface* message;
-
-	TTF_Font* font;
-	SDL_Color textColor = { 0, 0, 0 };
-	char str[50] = "¾È³ç? SDL_ttf!";
-
 	int a;
 };
 
-#endif /* __Game__ */g
+#endif /* __Game__ */

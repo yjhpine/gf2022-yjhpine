@@ -34,27 +34,52 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 
 	SDL_QueryTexture(m_pTexture, NULL, NULL, &m_sourceRectangle.w, &m_sourceRectangle.h);
 
-	//font = TTF_OpenFont("HANBaekB.ttf", 20);
-	//message = TTF_RenderText_Solid(font, str, textColor);
-
-	m_destinationRectangle.w = m_sourceRectangle.w = 50;
-	m_destinationRectangle.h = m_sourceRectangle.h = 50;
-
-	m_destinationRectangle.x = m_sourceRectangle.x = 0;
-	m_destinationRectangle.y = m_sourceRectangle.y = 0;
-
 	m_bRunning = true;
 	return true;
 }
 void Game::update()
 {
+	if (a < 100)
+	{
+		m_destinationRectangle.w = m_sourceRectangle.w = 50;
+		m_destinationRectangle.h = m_sourceRectangle.h = 50;
 
+		m_sourceRectangle.x = 0;
+		m_sourceRectangle.y = 0;
+
+		m_destinationRectangle.x = 80;
+		m_destinationRectangle.y = 50;
+	}
+	else if (100 < a < 200)
+	{
+		m_destinationRectangle.w = m_sourceRectangle.w = 50;
+		m_destinationRectangle.h = m_sourceRectangle.h = 50;
+
+		m_sourceRectangle.x = 50;
+		m_sourceRectangle.y = 50;
+
+		m_destinationRectangle.x = 80;
+		m_destinationRectangle.y = 50;
+	}
+	if (a > 200)
+	{
+		m_destinationRectangle.w = m_sourceRectangle.w = 640;
+		m_destinationRectangle.h = m_sourceRectangle.h = 480;
+
+		m_destinationRectangle.x = m_sourceRectangle.x = 0;
+		m_destinationRectangle.y = m_sourceRectangle.y = 0;
+	}
+	if (a < 300)
+	{
+		a++;
+		std::cout << a << std::endl;
+		SDL_Delay(10);
+	}
 }
 void Game::render()
 {
 	SDL_RenderClear(m_pRenderer);
 	SDL_RenderCopy(m_pRenderer, m_pTexture, &m_sourceRectangle, &m_destinationRectangle);
-	//DrawSurface(, 0, 0, message); 
 	SDL_RenderPresent(m_pRenderer);
 }
 void Game::handleEvents()
@@ -82,10 +107,3 @@ bool Game::running()
 {
 	return m_bRunning;
 }
-/*void DrawSurface(SDL_Surface* dst, int x, int y, SDL_Surface* src)
-{ 
-	SDL_Rect rectDst;
-	rectDst.x = x; 
-	rectDst.y = y; 
-	SDL_BlitSurface(src, NULL, dst, &rectDst);
-}*/
