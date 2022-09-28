@@ -23,9 +23,6 @@ private:
 	SDL_Renderer* m_pRenderer;
 	bool m_bRunning;
 
-	int SCREEN_WIDTH;
-	int SCREEN_HEIGHT;
-
 	SDL_Texture* m_pTexture;
 	SDL_Rect m_sourceRectangle;
 	SDL_Rect m_destinationRectangle;

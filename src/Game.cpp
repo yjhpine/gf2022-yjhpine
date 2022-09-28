@@ -11,7 +11,7 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 			m_pRenderer = SDL_CreateRenderer(m_pWindow, -1, 0);
 			if (m_pRenderer != 0)
 			{
-				SDL_SetRenderDrawColor(m_pRenderer, 255, 255, 255, 255);
+				SDL_SetRenderDrawColor(m_pRenderer, 0, 0, 0, 10);
 			}
 			else
 			{
@@ -28,53 +28,25 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 		return false;
 	}
 
-	SDL_Surface* pTempSurface = SDL_LoadBMP("Assets/rider.bmp");
+	SDL_Surface* pTempSurface = SDL_LoadBMP("assets/animate.bmp");
 	m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface);
 	SDL_FreeSurface(pTempSurface);
 
-	SDL_QueryTexture(m_pTexture, NULL, NULL, &m_sourceRectangle.w, &m_sourceRectangle.h);
+	m_sourceRectangle.w = 128;
+	m_sourceRectangle.h = 82;
+
+	m_destinationRectangle.w = m_sourceRectangle.w;
+	m_destinationRectangle.h = m_sourceRectangle.h;
+
+	m_destinationRectangle.x = m_sourceRectangle.x = 0;
+	m_destinationRectangle.y = m_sourceRectangle.y = 0;
 
 	m_bRunning = true;
 	return true;
 }
 void Game::update()
 {
-	if (a < 100)
-	{
-		m_destinationRectangle.w = m_sourceRectangle.w = 50;
-		m_destinationRectangle.h = m_sourceRectangle.h = 50;
-
-		m_sourceRectangle.x = 0;
-		m_sourceRectangle.y = 0;
-
-		m_destinationRectangle.x = 80;
-		m_destinationRectangle.y = 50;
-	}
-	else if (100 < a < 200)
-	{
-		m_destinationRectangle.w = m_sourceRectangle.w = 50;
-		m_destinationRectangle.h = m_sourceRectangle.h = 50;
-
-		m_sourceRectangle.x = 50;
-		m_sourceRectangle.y = 50;
-
-		m_destinationRectangle.x = 80;
-		m_destinationRectangle.y = 50;
-	}
-	if (a > 200)
-	{
-		m_destinationRectangle.w = m_sourceRectangle.w = 640;
-		m_destinationRectangle.h = m_sourceRectangle.h = 480;
-
-		m_destinationRectangle.x = m_sourceRectangle.x = 0;
-		m_destinationRectangle.y = m_sourceRectangle.y = 0;
-	}
-	if (a < 300)
-	{
-		a++;
-		std::cout << a << std::endl;
-		SDL_Delay(10);
-	}
+	
 }
 void Game::render()
 {
