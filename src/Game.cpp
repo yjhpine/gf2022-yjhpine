@@ -1,5 +1,5 @@
 #include "Game.h"
-#include "SDL2/SDL_ttf.h"
+#include "SDL2/SDL_image.h"
 
 bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 {
@@ -11,7 +11,7 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 			m_pRenderer = SDL_CreateRenderer(m_pWindow, -1, 0);
 			if (m_pRenderer != 0)
 			{
-				SDL_SetRenderDrawColor(m_pRenderer, 0, 0, 0, 10);
+				SDL_SetRenderDrawColor(m_pRenderer, 255, 0, 0, 255);
 			}
 			else
 			{
@@ -28,7 +28,7 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 		return false;
 	}
 
-	SDL_Surface* pTempSurface = SDL_LoadBMP("assets/animate.bmp");
+	SDL_Surface* pTempSurface = IMG_Load("assets/animate.png");
 	m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface);
 	SDL_FreeSurface(pTempSurface);
 
@@ -40,7 +40,7 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 
 	m_destinationRectangle.x = m_sourceRectangle.x = 0;
 	m_destinationRectangle.y = m_sourceRectangle.y = 0;
-
+	
 	m_bRunning = true;
 	return true;
 }

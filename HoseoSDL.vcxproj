@@ -258,7 +258,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\animate.bmp" />
+    <Image Include="assets\Assets\animate-alpha.png" />
     <Image Include="assets\Assets\animate.bmp" />
+    <Image Include="assets\Assets\animate.png" />
     <Image Include="assets\Assets\fishtitle.png" />
     <Image Include="assets\Assets\rider.bmp" />
     <Image Include="assets\rider.bmp" />

@@ -22,10 +22,15 @@ private:
 	SDL_Window* m_pWindow;
 	SDL_Renderer* m_pRenderer;
 	bool m_bRunning;
+	SDL_Renderer* renderer;
 
 	SDL_Texture* m_pTexture;
 	SDL_Rect m_sourceRectangle;
 	SDL_Rect m_destinationRectangle;
+
+	SDL_Texture* texture;
+	SDL_Rect ms;
+	SDL_Rect md;
 
 	int a;
 };

@@ -333,5 +333,11 @@
     <Image Include="assets\animate.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="assets\Assets\animate.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="assets\Assets\animate-alpha.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
 </Project>
