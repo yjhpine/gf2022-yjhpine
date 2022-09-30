@@ -21,6 +21,9 @@
     <ClCompile Include="src\Game.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="src\TextureManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\main.h">
@@ -299,6 +302,9 @@
     <ClInclude Include="3rdParty\SDL\include\SDL2\SDL2_rotozoom.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="include\TextureManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="3rdParty\SDL\lib\.DS_Store" />
@@ -337,6 +343,12 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="assets\Assets\animate-alpha.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="assets\player.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="assets\CuteDog.png">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

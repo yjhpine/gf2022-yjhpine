@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="3rdParty\SDL\include\SDL2\begin_code.h" />
@@ -238,6 +239,7 @@
     <ClInclude Include="3rdParty\SDL\include\SDL2\SDL_vulkan.h" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\main.h" />
+    <ClInclude Include="include\TextureManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="3rdParty\SDL\lib\.DS_Store" />
@@ -263,6 +265,8 @@
     <Image Include="assets\Assets\animate.png" />
     <Image Include="assets\Assets\fishtitle.png" />
     <Image Include="assets\Assets\rider.bmp" />
+    <Image Include="assets\CuteDog.png" />
+    <Image Include="assets\player.png" />
     <Image Include="assets\rider.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

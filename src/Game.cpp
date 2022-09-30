@@ -28,30 +28,28 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 		return false;
 	}
 
-	SDL_Surface* pTempSurface = IMG_Load("assets/animate-alpha.png");
-	m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface);
-	SDL_FreeSurface(pTempSurface);
 
-	m_sourceRectangle.w = 128;
-	m_sourceRectangle.h = 82;
-
-	m_destinationRectangle.w = m_sourceRectangle.w;
-	m_destinationRectangle.h = m_sourceRectangle.h;
-
-	m_destinationRectangle.x = m_sourceRectangle.x = 0;
-	m_destinationRectangle.y = m_sourceRectangle.y = 0;
+	m_textureManager.load("Assets/animate-alpha.png", "animate", m_pRenderer);
+	//m_textureManager.load("Assets/player.png", "animate2", m_pRenderer);
+	//m_textureManager.load("Assets/CuteDog.png", "animate3", m_pRenderer);
 	
 	m_bRunning = true;
 	return true;
 }
 void Game::update()
 {
-	m_sourceRectangle.x = 128 * ((SDL_GetTicks() / 100) % 6);
+	m_currentFrame = ((SDL_GetTicks() / 100) % 6);
+	m_currentFrame2 = ((SDL_GetTicks() / 50) % 8);
 }
 void Game::render()
 {
 	SDL_RenderClear(m_pRenderer);
-	SDL_RenderCopy(m_pRenderer, m_pTexture, &m_sourceRectangle, &m_destinationRectangle);
+	m_textureManager.draw("animate", 0, 0, 128, 82, m_pRenderer);
+	//m_textureManager.draw("animate3", 100, 100, 128, 128, m_pRenderer);
+	
+	m_textureManager.drawFrame("animate", 100, 100, 128, 82, 0, m_currentFrame, m_pRenderer);
+	//m_textureManager.drawFrame("animate2", 120, 120, 50, 60, 4, m_currentFrame2, m_pRenderer);
+
 	SDL_RenderPresent(m_pRenderer);
 }
 void Game::handleEvents()

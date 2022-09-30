@@ -4,6 +4,7 @@
 #include"SDL2/SDL.h"
 #include "SDL2/SDL_ttf.h"
 #include <iostream>
+#include "TextureManager.h"
 
 class Game
 {
@@ -22,15 +23,10 @@ private:
 	SDL_Window* m_pWindow;
 	SDL_Renderer* m_pRenderer;
 	bool m_bRunning;
-	SDL_Renderer* renderer;
-
-	SDL_Texture* m_pTexture;
-	SDL_Rect m_sourceRectangle;
-	SDL_Rect m_destinationRectangle;
-
-	SDL_Texture* texture;
-	SDL_Rect ms;
-	SDL_Rect md;
+	
+	TextureManager m_textureManager;
+	int m_currentFrame;
+	int m_currentFrame2;
 
 	int a;
 };
