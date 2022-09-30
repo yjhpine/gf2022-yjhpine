@@ -56,17 +56,26 @@ void Game::render()
 {
 	SDL_SetRenderDrawColor(m_pRenderer, 133, 251, 255, 255);//기본 배경
 	SDL_RenderClear(m_pRenderer);
-	
-	SDL_Rect fillRect = { 0, 400, 640, 200}; //흙바닥을 표현하는 사각형들
+
+	SDL_Rect fillRect = { 350, 250, 290, 280 }; //흙바닥을 표현하는 사각형들(언덕)
 	SDL_SetRenderDrawColor(m_pRenderer, 105, 73, 0, 255);
 	SDL_RenderFillRect(m_pRenderer, &fillRect);
 
-	SDL_Rect fillRect2 = { 0, 400, 640, 20 }; //잔디 표현
+	SDL_Rect fillRect2 = { 350, 250, 290, 20 }; //잔디 표현(언덕)
 	SDL_SetRenderDrawColor(m_pRenderer, 103, 255, 56, 255);
 	SDL_RenderFillRect(m_pRenderer, &fillRect2);
+	
+	SDL_Rect fillRect3 = { 0, 400, 640, 200}; //흙바닥을 표현하는 사각형들
+	SDL_SetRenderDrawColor(m_pRenderer, 105, 73, 0, 255);
+	SDL_RenderFillRect(m_pRenderer, &fillRect3);
 
-	TheTextureManager::Instance()->draw("animate", 180, 190, 256, 256, m_pRenderer);
+	SDL_Rect fillRect4 = { 0, 400, 640, 20 }; //잔디 표현
+	SDL_SetRenderDrawColor(m_pRenderer, 103, 255, 56, 255);
+	SDL_RenderFillRect(m_pRenderer, &fillRect4);
+
+	TheTextureManager::Instance()->draw("animate", 100, 190, 256, 256, m_pRenderer);
 	TheTextureManager::Instance()->draw("animate2", 250, 310, 128, 128, m_pRenderer);
+	TheTextureManager::Instance()->draw("animate2", 400, 160, 128, 128, m_pRenderer, SDL_FLIP_HORIZONTAL); //수평으로 flip한 강아지
 	TheTextureManager::Instance()->drawFrame("animate3", 400, 360, 64, 64, 0, m_currentFrame, m_pRenderer);
 	TheTextureManager::Instance()->drawFrame("animate3", 100, 360, 64, 64, 0, m_currentFrame, m_pRenderer);
 	TheTextureManager::Instance()->drawFrame("animate3", 500, 360, 64, 64, 0, m_currentFrame, m_pRenderer);
