@@ -266,6 +266,7 @@
     <Image Include="assets\Assets\fishtitle.png" />
     <Image Include="assets\Assets\rider.bmp" />
     <Image Include="assets\CuteDog.png" />
+    <Image Include="assets\hihit.png" />
     <Image Include="assets\player.png" />
     <Image Include="assets\rider.bmp" />
   </ItemGroup>
