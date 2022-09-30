@@ -9,8 +9,8 @@
 class Game
 {
 public:
-	Game() { }
-	~Game() { }
+	//Game() { }
+	//~Game() { }
 
 	bool init(const char* title, int xpos, int ypos, int w, int h, int flags);
 	void render();
@@ -24,7 +24,7 @@ private:
 	SDL_Renderer* m_pRenderer;
 	bool m_bRunning;
 	
-	TextureManager m_textureManager;
+	//TextureManager m_textureManager;
 	int m_currentFrame;
 	int m_currentFrame2;
 
