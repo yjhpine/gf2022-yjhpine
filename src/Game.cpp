@@ -41,10 +41,7 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 		return false;
 	}
 
-	//m_textureManager.load("Assets/Tree.png", "animate", m_pRenderer);
-	//m_textureManager.load("Assets/CuteDog.png", "animate2", m_pRenderer);
-	//m_textureManager.load("Assets/hihit.png", "animate3", m_pRenderer);
-	
+
 	m_bRunning = true;
 	return true;
 }
@@ -65,27 +62,23 @@ void Game::render()
 	SDL_SetRenderDrawColor(m_pRenderer, 103, 255, 56, 255);
 	SDL_RenderFillRect(m_pRenderer, &fillRect2);
 	
-	SDL_Rect fillRect3 = { 0, 400, 640, 200}; //흙바닥을 표현하는 사각형들
+	SDL_Rect fillRect3 = { 0, 400, 1280, 200}; //흙바닥을 표현하는 사각형들
 	SDL_SetRenderDrawColor(m_pRenderer, 105, 73, 0, 255);
 	SDL_RenderFillRect(m_pRenderer, &fillRect3);
 
-	SDL_Rect fillRect4 = { 0, 400, 640, 20 }; //잔디 표현
+	SDL_Rect fillRect4 = { 0, 400, 1280, 20 }; //잔디 표현
 	SDL_SetRenderDrawColor(m_pRenderer, 103, 255, 56, 255);
 	SDL_RenderFillRect(m_pRenderer, &fillRect4);
 
-	TheTextureManager::Instance()->draw("animate", 100, 190, 256, 256, m_pRenderer);
-	TheTextureManager::Instance()->draw("animate2", 250, 310, 128, 128, m_pRenderer);
+	TheTextureManager::Instance()->draw("animate", 100, 190, 256, 256, m_pRenderer); //나무
+	TheTextureManager::Instance()->draw("animate", 100, 190, 256, 256, m_pRenderer); 
+	TheTextureManager::Instance()->draw("animate", 850, 150, 300, 300, m_pRenderer); 
+	TheTextureManager::Instance()->draw("animate2", 250, 310, 128, 128, m_pRenderer); //강아지
 	TheTextureManager::Instance()->draw("animate2", 400, 160, 128, 128, m_pRenderer, SDL_FLIP_HORIZONTAL); //수평으로 flip한 강아지
 	TheTextureManager::Instance()->drawFrame("animate3", 400, 360, 64, 64, 0, m_currentFrame, m_pRenderer);
 	TheTextureManager::Instance()->drawFrame("animate3", 100, 360, 64, 64, 0, m_currentFrame, m_pRenderer);
 	TheTextureManager::Instance()->drawFrame("animate3", 500, 360, 64, 64, 0, m_currentFrame, m_pRenderer);
 
-	//m_textureManager.draw("animate2", 250, 310, 128, 128, m_pRenderer);//강아지 스프라이트
-	//m_textureManager.draw("animate", 180, 190, 256, 256, m_pRenderer);//나무 스프라이트
-	
-	//m_textureManager.drawFrame("animate3", 400, 360, 64, 64, 0, m_currentFrame, m_pRenderer); //바람에 흩날리는 덤불..?을 표현하려 했습니다.
-	//m_textureManager.drawFrame("animate3", 100, 360, 64, 64, 0, m_currentFrame, m_pRenderer); 
-	//m_textureManager.drawFrame("animate3", 500, 360, 64, 64, 0, m_currentFrame, m_pRenderer);
 
 	SDL_RenderPresent(m_pRenderer);
 }
