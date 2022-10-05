@@ -27,8 +27,9 @@ private:
 	//TextureManager m_textureManager;
 	int m_currentFrame;
 	int m_currentFrame2;
+	int m_currentFrame3;
 
 	int a;
 };
 
-#endif /* __Game__ */
+#endif

@@ -48,6 +48,8 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 void Game::update()
 {
 	m_currentFrame = ((SDL_GetTicks() / 80) % 5);
+	m_currentFrame2 = ((SDL_GetTicks() / 40) % 5);
+    m_currentFrame3 = ((SDL_GetTicks() / 120) % 5);
 }
 void Game::render()
 {
@@ -71,14 +73,14 @@ void Game::render()
 	SDL_RenderFillRect(m_pRenderer, &fillRect4);
 
 	TheTextureManager::Instance()->draw("animate", 100, 190, 256, 256, m_pRenderer); //나무
-	TheTextureManager::Instance()->draw("animate", 100, 190, 256, 256, m_pRenderer); 
 	TheTextureManager::Instance()->draw("animate", 850, 150, 300, 300, m_pRenderer); 
-	TheTextureManager::Instance()->draw("animate2", 250, 310, 128, 128, m_pRenderer); //강아지
+
+	TheTextureManager::Instance()->draw("animate2", a, 310, 128, 128, m_pRenderer); //강아지
+
 	TheTextureManager::Instance()->draw("animate2", 400, 160, 128, 128, m_pRenderer, SDL_FLIP_HORIZONTAL); //수평으로 flip한 강아지
 	TheTextureManager::Instance()->drawFrame("animate3", 400, 360, 64, 64, 0, m_currentFrame, m_pRenderer);
-	TheTextureManager::Instance()->drawFrame("animate3", 100, 360, 64, 64, 0, m_currentFrame, m_pRenderer);
-	TheTextureManager::Instance()->drawFrame("animate3", 500, 360, 64, 64, 0, m_currentFrame, m_pRenderer);
-
+	TheTextureManager::Instance()->drawFrame("animate3", 100, 360, 64, 64, 0, m_currentFrame2, m_pRenderer);
+	TheTextureManager::Instance()->drawFrame("animate3", 500, 360, 64, 64, 0, m_currentFrame3, m_pRenderer);
 
 	SDL_RenderPresent(m_pRenderer);
 }
@@ -94,6 +96,18 @@ void Game::handleEvents()
 			break;
 		default:
 			break;
+		}
+		if (0 < a < 1280)
+		{
+			switch (event.key.keysym.sym)
+			{
+			case SDLK_RIGHT:
+				a += 25;
+				break;
+			case SDLK_LEFT:
+				a -= 25;
+				break;
+			}
 		}
 	}
 }
