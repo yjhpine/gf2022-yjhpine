@@ -41,17 +41,32 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 	m_destinationRectangle.x = m_sourceRectangle.x = 0;
 	m_destinationRectangle.y = m_sourceRectangle.y = 0;
 	
+	SDL_Surface* pTempSurface2 = IMG_Load("assets/animate-alpha.png");
+	texture = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface2);
+	SDL_FreeSurface(pTempSurface2);
+
+	ms.w = 128;
+	ms.h = 82;
+
+	md.w = ms.w;
+	md.h = ms.h;
+
+	md.x = ms.x = 100;
+	md.y = ms.y = 0;
+
 	m_bRunning = true;
 	return true;
 }
 void Game::update()
 {
-	m_sourceRectangle.x = 128 * ((SDL_GetTicks() / 100) % 6);
+	m_sourceRectangle.x = 128 * ((SDL_GetTicks() / 50) % 6);
+	ms.x = 128 * ((SDL_GetTicks() / 100) % 6);
 }
 void Game::render()
 {
 	SDL_RenderClear(m_pRenderer);
 	SDL_RenderCopy(m_pRenderer, m_pTexture, &m_sourceRectangle, &m_destinationRectangle);
+	SDL_RenderCopy(m_pRenderer, texture, &ms, &md);
 	SDL_RenderPresent(m_pRenderer);
 }
 void Game::handleEvents()
