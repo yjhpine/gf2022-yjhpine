@@ -1,10 +1,9 @@
-#ifndef __Game__
-#define __Game__
-
-#include"SDL2/SDL.h"
+#pragma once
+#include "SDL2/SDL.h"
 #include "SDL2/SDL_ttf.h"
-#include <iostream>
 #include "TextureManager.h"
+#include "GameObject.h"
+#include "Player.h"
 
 class Game
 {
@@ -23,13 +22,9 @@ private:
 	SDL_Window* m_pWindow;
 	SDL_Renderer* m_pRenderer;
 	bool m_bRunning;
-	
-	//TextureManager m_textureManager;
-	int m_currentFrame;
-	int m_currentFrame2;
-	int m_currentFrame3;
 
-	int a;
+	GameObject m_go;
+	Player m_player;
+
+	int a = 1;
 };
-
-#endif
