@@ -1,6 +1,5 @@
 #pragma once
-#include "Game.h"
-#include <string>
+#include "main.h"
 
 class GameObject
 {
@@ -12,6 +11,8 @@ public:
 
 protected:
 	std::string m_textureID;
+
+	int a;
 
 	int m_x;
 	int m_y;

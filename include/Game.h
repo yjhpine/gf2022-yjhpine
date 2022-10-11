@@ -1,15 +1,16 @@
 #pragma once
-#include "SDL2/SDL.h"
-#include "SDL2/SDL_ttf.h"
-#include "TextureManager.h"
 #include "GameObject.h"
 #include "Player.h"
+#include "Monster.h"
+#include "main.h"
+#include "TextureManager.h"
+class Player;
 
 class Game
 {
 public:
-	//Game() { }
-	//~Game() { }
+	Game() { }
+	~Game() { }
 
 	bool init(const char* title, int xpos, int ypos, int w, int h, int flags);
 	void render();
@@ -17,14 +18,15 @@ public:
 	bool running();
 	void handleEvents();
 	void clean();
-
+	
 private:
 	SDL_Window* m_pWindow;
 	SDL_Renderer* m_pRenderer;
 	bool m_bRunning;
-
+	
 	GameObject m_go;
 	Player m_player;
+	Monster m_mob;
 
 	int a = 1;
 };
