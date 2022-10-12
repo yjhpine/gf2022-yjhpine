@@ -1,5 +1,5 @@
+#pragma once
 #include "Game.h"
-#include "SDL2/SDL_image.h"
 
 bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 {
@@ -33,25 +33,32 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 		return false;
 	}
 
-	m_go.load(100, 100, 128, 128, "animate");
-	m_player.load(300, 300, 128, 128, "animate");
+	GameObject* m_go = new GameObject();
+	GameObject* m_player = new Player();
+
+	m_go->load(100, 100, 128, 128, "animate");
+	m_player->load(300, 300, 128, 128, "animate");
+	m_gameObjects.push_back(m_go);
+	m_gameObjects.push_back(m_player);
 
 	m_bRunning = true;
 	return true;
 }
 void Game::update()
 {
-	m_go.update();
-	m_player.update();
-	m_mob.update();
+	for (int i = 0; i < m_gameObjects.size(); i++)
+	{
+		m_gameObjects[i]->update();
+	}
 }
 void Game::render()
 {
 	SDL_RenderClear(m_pRenderer);
 
-	m_go.draw(m_pRenderer);
-	m_player.draw(m_pRenderer);
-	m_mob.draw(m_pRenderer);
+	for (int i = 0; i < m_gameObjects.size(); i++)
+	{
+		m_gameObjects[i]->draw(m_pRenderer);
+	}
 
 	SDL_RenderPresent(m_pRenderer);
 }

@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 #include "GameObject.h"
 #include "Player.h"
 #include "Monster.h"
@@ -11,6 +12,8 @@ class Game
 public:
 	Game() { }
 	~Game() { }
+
+	std::vector<GameObject*> m_gameObjects;
 
 	bool init(const char* title, int xpos, int ypos, int w, int h, int flags);
 	void render();
