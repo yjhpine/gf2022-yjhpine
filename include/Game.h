@@ -2,7 +2,7 @@
 #include <vector>
 #include "GameObject.h"
 #include "Player.h"
-#include "Monster.h"
+#include "Enemy.h"
 #include "main.h"
 #include "TextureManager.h"
 class Player;
@@ -29,17 +29,11 @@ public:
 	SDL_Renderer* getRenderer() const { return m_pRenderer; }
 
 private:
-	Game() {}
-	~Game() {}
 	static Game* s_pInstance;
 
 	SDL_Window* m_pWindow;
 	SDL_Renderer* m_pRenderer;
 	bool m_bRunning;
 
-	GameObject m_go;
-	Player m_player;
-	Monster m_mob;
-
-	int a = 1;
+	//int a = 1;
 };  typedef Game TheGame;
