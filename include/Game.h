@@ -10,9 +10,6 @@ class Player;
 class Game
 {
 public:
-	Game() { }
-	~Game() { }
-
 	std::vector<GameObject*> m_gameObjects;
 
 	bool init(const char* title, int xpos, int ypos, int w, int h, int flags);
@@ -21,15 +18,28 @@ public:
 	bool running();
 	void handleEvents();
 	void clean();
-	
+
+	static Game* Instance() {
+		if (s_pInstance == 0) {
+			s_pInstance = new Game();
+			return s_pInstance;
+		}
+		return s_pInstance;
+	}
+	SDL_Renderer* getRenderer() const { return m_pRenderer; }
+
 private:
+	Game() {}
+	~Game() {}
+	static Game* s_pInstance;
+
 	SDL_Window* m_pWindow;
 	SDL_Renderer* m_pRenderer;
 	bool m_bRunning;
-	
+
 	GameObject m_go;
 	Player m_player;
 	Monster m_mob;
 
 	int a = 1;
-};
+};  typedef Game TheGame;
