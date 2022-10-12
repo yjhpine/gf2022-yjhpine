@@ -32,14 +32,21 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 	{
 		return false;
 	}
+	if (!TheTextureManager::Instance()->load("Assets/animate-alpha.png", "animate2", m_pRenderer))
+	{
+		return false;
+	}
 
 	GameObject* m_go = new GameObject();
 	GameObject* m_player = new Player();
+	GameObject* m_monster = new Monster();
 
 	m_go->load(100, 100, 128, 128, "animate");
 	m_player->load(300, 300, 128, 128, "animate");
+	m_monster->load(0, 0, 128, 82, "animate2");
 	m_gameObjects.push_back(m_go);
 	m_gameObjects.push_back(m_player);
+	m_gameObjects.push_back(m_monster);
 
 	m_bRunning = true;
 	return true;

@@ -14,16 +14,16 @@ void Monster::update()
 	{
 		a = 1;
 	}
-	else if (m_x == 512)
+	else if (m_x == 540)
 	{
 		a = 2;
 	}
 	if (a == 1)
 	{
-		m_x += 1;
+		m_x += 3;
 	}
 	else if (a == 2)
 	{
-		m_x -= 1;
+		m_x -= 3;
 	}
 }
