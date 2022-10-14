@@ -13,6 +13,7 @@ public:
     void drawFrame(std::string id, int x, int y, int width, int height,
         int currentRow, int currentFrame,
         SDL_Renderer* pRenderer, SDL_RendererFlip flip = SDL_FLIP_NONE);
+
     static TextureManager* Instance()
     {
         if (s_pInstance == 0)
@@ -21,7 +22,6 @@ public:
     }
 private:
     TextureManager() {}
-    ~TextureManager() {}
 
     std::map<std::string, SDL_Texture*> m_textureMap;
 
