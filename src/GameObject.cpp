@@ -19,7 +19,7 @@ void GameObject::draw(SDL_Renderer* pRenderer)
             m_width, m_height,
             m_currentRow,
             m_currentFrame,
-            pRenderer);
+            pRenderer, flip);
 }
 void GameObject::update()
 {

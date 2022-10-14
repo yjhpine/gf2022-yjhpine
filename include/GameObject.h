@@ -12,6 +12,7 @@ public:
 protected:
 	std::string m_textureID;
 
+	SDL_RendererFlip flip;
 	int a;
 
 	int m_x;

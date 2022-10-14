@@ -10,13 +10,15 @@ void Monster::draw(SDL_Renderer* pRenderer)
 }
 void Monster::update()
 {
-	if (m_x == 0)
+	if (m_x <= 0)
 	{
 		a = 1;
+		flip = SDL_FLIP_NONE;
 	}
-	else if (m_x == 540)
+	else if (m_x > 540)
 	{
 		a = 2;
+		flip = SDL_FLIP_HORIZONTAL;
 	}
 	if (a == 1)
 	{
@@ -26,4 +28,5 @@ void Monster::update()
 	{
 		m_x -= 3;
 	}
+	m_currentFrame = ((SDL_GetTicks() / 100) % 6);
 }
