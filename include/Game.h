@@ -27,6 +27,7 @@ private:
 	GameObject m_go;
 	Player m_player;
 	Monster m_mob;
+	Monster m_mob2;
 
 	int a = 1;
 };
