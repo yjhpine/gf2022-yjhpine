@@ -2,7 +2,6 @@
 #define __Game__
 
 #include"SDL2/SDL.h"
-#include "SDL2/SDL_ttf.h"
 #include <iostream>
 #include "TextureManager.h"
 
