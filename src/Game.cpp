@@ -35,7 +35,7 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 	}
 
 	m_gameObjects.push_back(new Player(new LoaderParams(100, 100, 128, 82, "animate")));
-	m_gameObjects.push_back(new Enemy(new LoaderParams(100, 100, 128, 82, "animate")));
+	//m_gameObjects.push_back(new Enemy(new LoaderParams(100, 100, 128, 82, "animate")));
 
 	m_bRunning = true;
 	return true;
@@ -59,21 +59,11 @@ void Game::render()
 }
 void Game::handleEvents()
 {
-	SDL_Event event;
-	while (SDL_PollEvent(&event)) //이벤트가 감지될 때 까지 계속 루프
-	{
-		switch (event.type)
-		{
-		case SDL_QUIT:
-			m_bRunning = false;
-			break;
-		default:
-			break;
-		}
-	}
+	TheInputHandler::Instance()->update();
 }
 void Game::clean()
 {
+	TheInputHandler::Instance()->clean();
 	SDL_DestroyWindow(m_pWindow);
 	SDL_DestroyRenderer(m_pRenderer);
 	SDL_Quit(); 

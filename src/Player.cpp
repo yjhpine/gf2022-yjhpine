@@ -7,10 +7,42 @@ void Player::draw()
 }
 void Player::update()
 {
-	//m_position.setX(m_position.getX() + 1);
-	m_currentFrame = ((SDL_GetTicks() / 100) % 6);
-	//m_velocity.setX(1); 속도를 1로 설정하면 가속도를 더해도 계속 속도 고정
-	m_acceleration.setX(0.01);
+	handleInput();
+    m_currentFrame = ((SDL_GetTicks() / 100) % 6);
 	SDLGameObject::update();
+}
+void Player::handleInput()
+{
+    if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT)) {
+        m_velocity.setX(2);
+    }
+    else
+    {
+        m_velocity.setX(0);
+    }
+
+    if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_LEFT)) {
+        m_velocity.setX(-2);
+    }
+    else
+    {
+        m_velocity.setX(0);
+    }
+
+    if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_UP)) {
+        m_velocity.setY(-2);
+    }
+    else
+    {
+        m_velocity.setY(0);
+    }
+
+    if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_DOWN)) {
+        m_velocity.setY(2);
+    }
+    else
+    {
+        m_velocity.setY(0);
+    }
 }
 void Player::clean() {}
