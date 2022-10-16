@@ -5,5 +5,6 @@
 #include <SDL2/SDL2_gfxPrimitives.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_mixer.h>
+#include <vector>
 #include "LoaderParams.h"
 #include "Vector2D.h"
