@@ -147,6 +147,7 @@
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\InputHandler.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\MyBullet.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\SDLGameObject.cpp" />
     <ClCompile Include="src\TextureManager.cpp" />
@@ -249,6 +250,7 @@
     <ClInclude Include="include\InputHandler.h" />
     <ClInclude Include="include\LoaderParams.h" />
     <ClInclude Include="include\main.h" />
+    <ClInclude Include="include\MyBullet.h" />
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\SDLGameObject.h" />
     <ClInclude Include="include\TextureManager.h" />
@@ -276,6 +278,7 @@
     <Image Include="assets\Assets\animate-alpha.png" />
     <Image Include="assets\Assets\animate.bmp" />
     <Image Include="assets\Assets\animate.png" />
+    <Image Include="assets\Assets\bullet.png" />
     <Image Include="assets\Assets\fishtitle.png" />
     <Image Include="assets\Assets\rider.bmp" />
     <Image Include="assets\CuteDog.png" />

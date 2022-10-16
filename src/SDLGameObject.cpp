@@ -13,14 +13,14 @@ SDLGameObject::SDLGameObject(const LoaderParams* pParams) :
     m_height = pParams->getHeight();
     m_textureID = pParams->getTextureID();
     m_currentRow = 0;
-    m_currentFrame = 1;
+    m_currentFrame = 0;
 }
-void SDLGameObject::draw()
+void SDLGameObject::draw(SDL_RendererFlip flip)
 {
     TextureManager::Instance()->drawFrame(m_textureID,
         (int)m_position.getX(), (int)m_position.getY(),
         m_width, m_height, m_currentRow, m_currentFrame,
-        TheGame::Instance()->getRenderer());
+        TheGame::Instance()->getRenderer(), flip);
 }
 void SDLGameObject::update()
 {

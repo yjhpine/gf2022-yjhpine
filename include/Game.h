@@ -1,13 +1,12 @@
 #pragma once
 #include <vector>
 #include "GameObject.h"
+#include "MyBullet.h"
 #include "Player.h"
 #include "Enemy.h"
 #include "InputHandler.h"
 #include "main.h"
 #include "TextureManager.h"
-class Player;
-
 class Game
 {
 public:
