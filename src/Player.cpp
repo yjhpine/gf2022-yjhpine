@@ -7,6 +7,7 @@ void Player::draw()
 }
 void Player::update()
 {
+    Collision();
 	handleInput();
 	SDLGameObject::update();
 }
@@ -37,12 +38,36 @@ void Player::handleInput()
    }
    if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE))
    {
-       fire();
+       ToF = TheInputHandler::Instance()->isJumping();
+       m_currentFrame = ((SDL_GetTicks() / 100) % 6);
+       std::cout << m_acceleration.getY() << "\nÁ¡ÇÁ\n" << ToF << std::endl;
+       Jumping();
    }
 }
 void Player::clean() {}
-
-void Player::fire()
+void Player::Collision()
 {
-    std::cout << "ÅÁ!";
+    if (m_position.getX() >= 540)
+    {
+        m_position.setX(m_position.getX() - 4);
+    }
+    if (m_position.getX() < -20)
+    {
+        m_position.setX(m_position.getX() + 4);
+    }
+    if (m_position.getY() <= 0)
+    {
+        m_position.setY(m_position.getY() + 4);
+    }
+    if (m_position.getY() > 400)
+    {
+        m_position.setY(m_position.getY() - 4);
+    }
+}
+void Player::Jumping()
+{
+    if (ToF == true)
+    {
+        
+    }
 }

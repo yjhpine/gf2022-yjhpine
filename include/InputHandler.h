@@ -16,6 +16,7 @@ public:
         return s_pInstance;
     }
     bool isKeyDown(SDL_Scancode key);
+    bool isJumping();
     void update();
     void clean() {}
     bool getMouseButtonState(int buttonNumber);

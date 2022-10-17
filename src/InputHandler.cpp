@@ -50,6 +50,10 @@ bool InputHandler::isKeyDown(SDL_Scancode key)
     }
     return false;
 }
+bool InputHandler::isJumping()
+{
+    return true;
+}
 bool InputHandler::getMouseButtonState(int buttonNumber)
 {
     return m_mouseButtonStates[buttonNumber];
