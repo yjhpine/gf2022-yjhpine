@@ -5,7 +5,7 @@
 
 SDLGameObject::SDLGameObject(const LoaderParams* pParams) :
     GameObject(pParams), m_position(pParams->getX(), pParams->getY()),
-    m_velocity(0, 0), m_acceleration(0,0)
+    m_velocity(0, 0), m_acceleration(0,0), m_gravity(0, 0.15), m_gravitySpeed(0, 0.05)
 {
     m_position.getX();
     m_position.getY();

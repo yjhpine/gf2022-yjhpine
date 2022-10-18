@@ -11,6 +11,7 @@ public:
     void handleInput();
     void Collision();
     void Jumping();
+    void Gravity();
     virtual void draw();
     virtual void update();
     virtual void clean();

@@ -7,6 +7,7 @@ void Player::draw()
 }
 void Player::update()
 {
+    Gravity();
     Collision();
 	handleInput();
 	SDLGameObject::update();
@@ -41,7 +42,11 @@ void Player::handleInput()
        ToF = TheInputHandler::Instance()->isJumping();
        m_currentFrame = ((SDL_GetTicks() / 100) % 6);
        std::cout << m_acceleration.getY() << "\nÁ¡ÇÁ\n" << ToF << std::endl;
-       Jumping();
+       if (ToF == true)
+       {
+           Jumping();
+       }
+       
    }
 }
 void Player::clean() {}
@@ -61,13 +66,22 @@ void Player::Collision()
     }
     if (m_position.getY() > 400)
     {
-        m_position.setY(m_position.getY() - 4);
+        m_position.setY(400);
+        m_gravitySpeed.setY(0);
+        m_acceleration.setY(0);
     }
 }
 void Player::Jumping()
 {
-    if (ToF == true)
+    m_acceleration.setY(-6);
+    ToF = false;
+}
+void Player::Gravity()
+{
+    if (m_position.getY() < 400)
     {
-        
+        std::cout << m_gravitySpeed.getY() << std::endl;
+        m_gravitySpeed += m_gravity;
+        m_position += m_gravitySpeed;
     }
 }
