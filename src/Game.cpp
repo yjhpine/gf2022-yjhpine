@@ -33,11 +33,9 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 	{
 		return false;
 	}
-	
 
 	m_gameObjects.push_back(new Player(new LoaderParams(100, 100, 128, 82, "animate")));
-	//m_gameObjects.push_back(new Enemy(new LoaderParams(100, 100, 128, 82, "animate")));
-
+	
 	m_bRunning = true;
 	return true;
 }

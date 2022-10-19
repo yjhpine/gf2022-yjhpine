@@ -5,7 +5,7 @@
 
 SDLGameObject::SDLGameObject(const LoaderParams* pParams) :
     GameObject(pParams), m_position(pParams->getX(), pParams->getY()),
-    m_velocity(0, 0), m_acceleration(0,0), m_gravity(0, 0.15), m_gravitySpeed(0, 0.05)
+    m_velocity(0, 0), m_acceleration(0,0), m_gravity(0, 0.25), m_gravitySpeed(0, 0.05)
 {
     m_position.getX();
     m_position.getY();
@@ -26,4 +26,13 @@ void SDLGameObject::update()
 {
     m_velocity += m_acceleration;
     m_position += m_velocity;
+}
+void SDLGameObject::Gravity()
+{
+    if (m_position.getY() < 400)
+    {
+        std::cout << m_gravitySpeed.getY() << std::endl;
+        m_gravitySpeed += m_gravity;
+        m_position += m_gravitySpeed;
+    }
 }

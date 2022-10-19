@@ -7,6 +7,7 @@ public:
 	virtual void draw(SDL_RendererFlip flip);
 	virtual void update();
 	virtual void clean() {}
+	void Gravity();
 	virtual ~SDLGameObject() {}
 
 protected:

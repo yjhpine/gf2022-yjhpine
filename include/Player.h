@@ -5,13 +5,12 @@
 class Player : public SDLGameObject
 {
 private:
-    bool ToF;
+    bool isjumping;
 public:
     Player(const LoaderParams* pParams);
     void handleInput();
     void Collision();
     void Jumping();
-    void Gravity();
     virtual void draw();
     virtual void update();
     virtual void clean();

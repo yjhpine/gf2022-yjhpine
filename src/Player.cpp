@@ -37,22 +37,19 @@ void Player::handleInput()
        m_velocity.setY(4);
        m_currentFrame = ((SDL_GetTicks() / 100) % 6);
    }
-   if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE))
-   {
-       ToF = TheInputHandler::Instance()->isJumping();
+   if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE)) {
+       isjumping = TheInputHandler::Instance()->isJumping();
        m_currentFrame = ((SDL_GetTicks() / 100) % 6);
-       std::cout << m_acceleration.getY() << "\n점프\n" << ToF << std::endl;
-       if (ToF == true)
-       {
-           Jumping();
+       if (isjumping == true) 
+       { 
+           Jumping(); 
        }
-       
    }
 }
 void Player::clean() {}
 void Player::Collision()
 {
-    if (m_position.getX() >= 540)
+    if (m_position.getX() >= 1200)
     {
         m_position.setX(m_position.getX() - 4);
     }
@@ -73,15 +70,9 @@ void Player::Collision()
 }
 void Player::Jumping()
 {
-    m_acceleration.setY(-6);
-    ToF = false;
+    m_acceleration.setY(-8);
+    isjumping = false;
 }
-void Player::Gravity()
-{
-    if (m_position.getY() < 400)
-    {
-        std::cout << m_gravitySpeed.getY() << std::endl;
-        m_gravitySpeed += m_gravity;
-        m_position += m_gravitySpeed;
-    }
-}
+//https://www.parallelrealities.co.uk/tutorials/ppp/ppp1.php#inspecting-the-code 맵 표시
+//https://www.youtube.com/watch?v=FbtKSU92Xz8 // https://www.youtube.com/watch?v=FQOiFUl93lI //참고 영상
+//https://www.youtube.com/watch?v=QeN1ygJD5y4 플레이어를 따라가는 카메라
