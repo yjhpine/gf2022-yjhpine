@@ -142,10 +142,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Enemy.cpp" />
+    <ClCompile Include="src\Collision.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\InputHandler.cpp" />
+    <ClCompile Include="src\loadmap.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\SDLGameObject.cpp" />
@@ -243,12 +244,13 @@
     <ClInclude Include="3rdParty\SDL\include\SDL2\SDL_version.h" />
     <ClInclude Include="3rdParty\SDL\include\SDL2\SDL_video.h" />
     <ClInclude Include="3rdParty\SDL\include\SDL2\SDL_vulkan.h" />
-    <ClInclude Include="include\Enemy.h" />
+    <ClInclude Include="include\Collision.h" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\GameObject.h" />
     <ClInclude Include="include\InputHandler.h" />
     <ClInclude Include="include\LoaderParams.h" />
     <ClInclude Include="include\main.h" />
+    <ClInclude Include="include\loadmap.h" />
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\SDLGameObject.h" />
     <ClInclude Include="include\TextureManager.h" />

@@ -2,10 +2,11 @@
 #include <vector>
 #include "GameObject.h"
 #include "Player.h"
-#include "Enemy.h"
 #include "InputHandler.h"
 #include "main.h"
 #include "TextureManager.h"
+#include "loadmap.h"
+
 class Game
 {
 public:
@@ -34,6 +35,8 @@ private:
 	SDL_Window* m_pWindow;
 	SDL_Renderer* m_pRenderer;
 	bool m_bRunning;
+
+	loadMap loadmap;
 
 	//int a = 1;
 };  typedef Game TheGame;

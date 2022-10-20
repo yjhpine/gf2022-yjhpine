@@ -5,7 +5,7 @@
 
 SDLGameObject::SDLGameObject(const LoaderParams* pParams) :
     GameObject(pParams), m_position(pParams->getX(), pParams->getY()),
-    m_velocity(0, 0), m_acceleration(0,0), m_gravity(0, 0.25), m_gravitySpeed(0, 0.05)
+    m_velocity(0, 0), m_acceleration(0,0), m_gravity(0, 0.25), m_gravitySpeed(0, 0)
 {
     m_position.getX();
     m_position.getY();
@@ -14,7 +14,7 @@ SDLGameObject::SDLGameObject(const LoaderParams* pParams) :
     m_textureID = pParams->getTextureID();
     m_currentRow = 0;
     m_currentFrame = 0;
-}
+} 
 void SDLGameObject::draw(SDL_RendererFlip flip)
 {
     TextureManager::Instance()->drawFrame(m_textureID,
@@ -29,10 +29,6 @@ void SDLGameObject::update()
 }
 void SDLGameObject::Gravity()
 {
-    if (m_position.getY() < 400)
-    {
-        std::cout << m_gravitySpeed.getY() << std::endl;
-        m_gravitySpeed += m_gravity;
-        m_position += m_gravitySpeed;
-    }
+     m_gravitySpeed += m_gravity;
+     m_position += m_gravitySpeed;
 }

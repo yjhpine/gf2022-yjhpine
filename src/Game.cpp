@@ -33,7 +33,7 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 	{
 		return false;
 	}
-
+	
 	m_gameObjects.push_back(new Player(new LoaderParams(100, 100, 128, 82, "animate")));
 	
 	m_bRunning = true;
@@ -48,7 +48,16 @@ void Game::update()
 }
 void Game::render()
 {
+	SDL_SetRenderDrawColor(m_pRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 	SDL_RenderClear(m_pRenderer);
+
+	SDL_SetRenderDrawColor(m_pRenderer, 255, 0, 0, 0);
+
+	for (int a = 0; a < 4; a++)
+	{
+		SDL_SetRenderDrawColor(m_pRenderer, 0, 200, 0, 0);
+		SDL_RenderFillRect(m_pRenderer, &loadmap.ground[a]);
+	}
 
 	for (int i = 0; i != m_gameObjects.size(); i++) {
 		m_gameObjects[i]->draw();

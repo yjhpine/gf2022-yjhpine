@@ -1,14 +1,33 @@
 #include "Player.h"
 
-Player::Player(const LoaderParams* pParams) : SDLGameObject(pParams) {}
+Player::Player(const LoaderParams* pParams) : SDLGameObject(pParams) 
+{
+    playerCollider.x = m_position.getX();
+    playerCollider.y = m_position.getY();
+    playerCollider.w = pParams->getWidth();
+    playerCollider.h = pParams->getHeight();
+}
 void Player::draw()
 {
 	SDLGameObject::draw(flip);
 }
 void Player::update()
 {
+    playerCollider.x = m_position.getX();
+    playerCollider.y = m_position.getY();
     Gravity();
-    Collision();
+    for (int a = 0; a < 4; a++)
+    {
+        if (coll.check_collision(playerCollider, loadmap.ground[a]))
+        {
+            m_position.setY(loadmap.ground[a].y - playerCollider.h);
+            m_gravitySpeed.setY(0);
+            if (isjumping == false)
+            {
+                m_acceleration.setY(0);
+            }
+        }
+    }
 	handleInput();
 	SDLGameObject::update();
 }
@@ -20,13 +39,11 @@ void Player::handleInput()
        m_currentFrame = ((SDL_GetTicks() / 100) % 6);
    }
    else m_velocity.setX(0);
-
    if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_LEFT)) {
        m_velocity.setX(-4);
        flip = SDL_FLIP_HORIZONTAL;
        m_currentFrame = ((SDL_GetTicks() / 100) % 6);
    }
-
    if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_UP)) {
        m_velocity.setY(-4);
        m_currentFrame = ((SDL_GetTicks() / 100) % 6);
@@ -42,37 +59,13 @@ void Player::handleInput()
        m_currentFrame = ((SDL_GetTicks() / 100) % 6);
        if (isjumping == true) 
        { 
-           Jumping(); 
+           Jumping();
        }
    }
 }
 void Player::clean() {}
-void Player::Collision()
-{
-    if (m_position.getX() >= 1200)
-    {
-        m_position.setX(m_position.getX() - 4);
-    }
-    if (m_position.getX() < -20)
-    {
-        m_position.setX(m_position.getX() + 4);
-    }
-    if (m_position.getY() <= 0)
-    {
-        m_position.setY(m_position.getY() + 4);
-    }
-    if (m_position.getY() > 400)
-    {
-        m_position.setY(400);
-        m_gravitySpeed.setY(0);
-        m_acceleration.setY(0);
-    }
-}
 void Player::Jumping()
 {
     m_acceleration.setY(-8);
     isjumping = false;
 }
-//https://www.parallelrealities.co.uk/tutorials/ppp/ppp1.php#inspecting-the-code 맵 표시
-//https://www.youtube.com/watch?v=FbtKSU92Xz8 // https://www.youtube.com/watch?v=FQOiFUl93lI //참고 영상
-//https://www.youtube.com/watch?v=QeN1ygJD5y4 플레이어를 따라가는 카메라
