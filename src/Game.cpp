@@ -55,7 +55,7 @@ void Game::render()
 
 	for (int a = 0; a < 4; a++)
 	{
-		SDL_SetRenderDrawColor(m_pRenderer, 0, 100, 0, 0);
+		SDL_SetRenderDrawColor(m_pRenderer, 0, 230, 0, 0);
 		SDL_RenderFillRect(m_pRenderer, &loadmap.ground[a]);
 	}
 	for (int a = 0; a < 4; a++)
