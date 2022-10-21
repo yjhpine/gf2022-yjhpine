@@ -21,4 +21,24 @@ loadMap::loadMap()
     ground[3].y = 200;
     ground[3].w = 300;
     ground[3].h = 500;
+
+    cloud[0].x = 600;
+    cloud[0].y = 50;
+    cloud[0].w = 200;
+    cloud[0].h = 50;
+
+    cloud[1].x = 50;
+    cloud[1].y = 20;
+    cloud[1].w = 200;
+    cloud[1].h = 50;
+
+    cloud[2].x = 1000;
+    cloud[2].y = 10;
+    cloud[2].w = 200;
+    cloud[2].h = 50;
+
+    cloud[3].x = 550;
+    cloud[3].y = 40;
+    cloud[3].w = 200;
+    cloud[3].h = 50;
 }

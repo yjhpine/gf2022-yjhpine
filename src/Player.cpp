@@ -34,13 +34,13 @@ void Player::update()
 void Player::handleInput()
 {
    if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT)) {
-       m_velocity.setX(4);
+       m_velocity.setX(5);
        flip = SDL_FLIP_NONE;
        m_currentFrame = ((SDL_GetTicks() / 100) % 6);
    }
    else m_velocity.setX(0);
    if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_LEFT)) {
-       m_velocity.setX(-4);
+       m_velocity.setX(-5);
        flip = SDL_FLIP_HORIZONTAL;
        m_currentFrame = ((SDL_GetTicks() / 100) % 6);
    }
