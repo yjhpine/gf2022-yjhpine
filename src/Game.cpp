@@ -29,13 +29,20 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 		return false;
 	}
 
-	if (!TheTextureManager::Instance()->load("Assets/CuteDog.png", "animate", m_pRenderer))
+	
+	if (!TheTextureManager::Instance()->load("assets/characters.png", "animate", m_pRenderer))
 	{
 		return false;
 	}
-	
-	m_gameObjects.push_back(new Player(new LoaderParams(100, 100, 128, 100, "animate")));
-	
+	if (!TheTextureManager::Instance()->load("assets/defaultmap123.png", "BG", m_pRenderer))
+	{
+		return false;
+	}
+
+	m_gameObjects.push_back(new Camera(new LoaderParams(0, 0, 640, 480, "camera")));
+	m_gameObjects.push_back(new Player(new LoaderParams(0, 0, 32, 32, "animate")));
+	std::cout << m_gameObjects.size() << std::endl;
+
 	m_bRunning = true;
 	return true;
 }
@@ -53,17 +60,7 @@ void Game::render()
 
 	SDL_SetRenderDrawColor(m_pRenderer, 255, 0, 0, 0);
 
-	for (int a = 0; a < 4; a++)
-	{
-		SDL_SetRenderDrawColor(m_pRenderer, 0, 230, 0, 0);
-		SDL_RenderFillRect(m_pRenderer, &loadmap.ground[a]);
-	}
-	for (int a = 0; a < 4; a++)
-	{
-		SDL_SetRenderDrawColor(m_pRenderer, 255, 255, 255, 255);
-		SDL_RenderFillRect(m_pRenderer, &loadmap.cloud[a]);
-	}
-
+	TheTextureManager::Instance()->draw("BG", 0, 0, 640, 480, m_pRenderer, SDL_FLIP_NONE);
 	for (int i = 0; i != m_gameObjects.size(); i++) {
 		m_gameObjects[i]->draw();
 	}

@@ -4,6 +4,7 @@
 #include "Collision.h"
 #include "loadmap.h"
 
+
 class Player : public SDLGameObject
 {
 private:

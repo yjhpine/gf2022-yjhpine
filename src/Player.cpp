@@ -33,39 +33,40 @@ void Player::update()
 }
 void Player::handleInput()
 {
+    m_currentFrame = ((SDL_GetTicks() / 100) % 1);
    if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT)) {
        m_velocity.setX(5);
        flip = SDL_FLIP_NONE;
-       m_currentFrame = ((SDL_GetTicks() / 100) % 6);
+       m_currentFrame = ((SDL_GetTicks() / 100) % 4);
    }
    else m_velocity.setX(0);
    if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_LEFT)) {
        m_velocity.setX(-5);
        flip = SDL_FLIP_HORIZONTAL;
-       m_currentFrame = ((SDL_GetTicks() / 100) % 6);
+       m_currentFrame = ((SDL_GetTicks() / 100) % 4);
    }
    if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_UP)) {
        m_velocity.setY(-4);
-       m_currentFrame = ((SDL_GetTicks() / 100) % 6);
+       m_currentFrame = ((SDL_GetTicks() / 100) % 4);
    }
    else m_velocity.setY(0);
 
    if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_DOWN)) {
        m_velocity.setY(4);
-       m_currentFrame = ((SDL_GetTicks() / 100) % 6);
+       m_currentFrame = ((SDL_GetTicks() / 100) % 4);
    }
    if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE)) {
        isjumping = TheInputHandler::Instance()->isJumping();
-       m_currentFrame = ((SDL_GetTicks() / 100) % 6);
+       m_currentFrame = 5 + ((SDL_GetTicks() / 400) % 3);
        if (isjumping == true) 
        { 
-           Jumping();
+          Jumping();
        }
    }
 }
 void Player::clean() {}
 void Player::Jumping()
 {
-    m_acceleration.setY(-8);
+    m_acceleration.setY(-12);
     isjumping = false;
 }
