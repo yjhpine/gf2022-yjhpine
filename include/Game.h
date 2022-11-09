@@ -39,5 +39,4 @@ private:
 
 	loadMap loadmap;
 
-	//int a = 1;
 };  typedef Game TheGame;

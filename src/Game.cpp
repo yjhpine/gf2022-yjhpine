@@ -61,6 +61,7 @@ void Game::render()
 	SDL_SetRenderDrawColor(m_pRenderer, 255, 0, 0, 0);
 
 	TheTextureManager::Instance()->draw("BG", 0, 0, 640, 480, m_pRenderer, SDL_FLIP_NONE);
+	
 	for (int i = 0; i != m_gameObjects.size(); i++) {
 		m_gameObjects[i]->draw();
 	}
