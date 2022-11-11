@@ -1,6 +1,6 @@
 #pragma once
 #include "Game.h"
-
+//https://www.youtube.com/watch?v=DeSIwhFzVYw 참고영상
 #define LEVEL_WIDTH 1920      // Background's width
 #define LEVEL_HEIGHT 480    // Background's height
 #define SCREEN_WIDTH 640    // Screen's (camera's) width

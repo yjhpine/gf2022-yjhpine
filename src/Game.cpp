@@ -39,7 +39,6 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 		return false;
 	}
 
-	m_gameObjects.push_back(new Camera(new LoaderParams(0, 0, 640, 480, "camera")));
 	m_gameObjects.push_back(new Player(new LoaderParams(0, 0, 32, 32, "animate")));
 	std::cout << m_gameObjects.size() << std::endl;
 
