@@ -18,17 +18,7 @@ void Player::update()
 {
     playerCollider.x = m_position.getX();
     playerCollider.y = m_position.getY();
-    Gravity();
-    std::cout << m_gravity.getY() << " : " << m_gravitySpeed.getY() << std::endl;
-    for (int a = 0; a < 4; a++)
-    {
-        if (coll.check_collision(playerCollider, loadmap.ground[a]))
-        {
-            m_position.setY(loadmap.ground[a].y - playerCollider.h);
-            m_acceleration.setY(0);
-            m_gravitySpeed.setY(-1);
-        }
-    }
+    std::cout << playerCollider.x <<"/" << playerCollider.y << "/" << playerCollider.w <<"/"<< playerCollider.h << std::endl;
 	handleInput();
     setCamera();
 	SDLGameObject::update();
@@ -75,6 +65,7 @@ void Player::Jumping()
 void Player::setCamera()
 {
     //Keep the camera in bounds
+    
     if (camera.x < 0)
     {
         camera.x = 0;

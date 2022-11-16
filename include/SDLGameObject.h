@@ -11,8 +11,8 @@ public:
 	virtual ~SDLGameObject() {}
 
 protected:
-	Vector2D m_gravitySpeed;
-	Vector2D m_gravity;
+	//Vector2D m_gravitySpeed;
+	//Vector2D m_gravity;
 
 	Vector2D m_acceleration;
 	Vector2D m_velocity;

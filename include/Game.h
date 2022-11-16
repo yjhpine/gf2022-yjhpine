@@ -6,7 +6,6 @@
 #include "Camera.h"
 #include "main.h"
 #include "TextureManager.h"
-#include "loadmap.h"
 
 class Game
 {
@@ -36,7 +35,5 @@ private:
 	SDL_Window* m_pWindow;
 	SDL_Renderer* m_pRenderer;
 	bool m_bRunning;
-
-	loadMap loadmap;
 
 };  typedef Game TheGame;

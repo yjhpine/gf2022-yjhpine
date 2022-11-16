@@ -2,7 +2,6 @@
 #include "SDLGameObject.h"
 #include "InputHandler.h"
 #include "Collision.h"
-#include "loadmap.h"
 
 class Player : public SDLGameObject
 {
@@ -10,7 +9,6 @@ private:
     bool isjumping;
     SDL_Rect playerCollider;
     Collision coll;
-    loadMap loadmap;
     SDL_Rect camera;
 
     //The dimensions of the level
