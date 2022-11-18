@@ -1,21 +1,17 @@
 #pragma once
-#include "Game.h"
-//https://www.youtube.com/watch?v=DeSIwhFzVYw 참고영상
-#define LEVEL_WIDTH 1920      // Background's width
-#define LEVEL_HEIGHT 480    // Background's height
-#define SCREEN_WIDTH 640    // Screen's (camera's) width
-#define SCREEN_HEIGHT 480   // Screen's (camera's) height 
+#include "Player.h"
 
-class Camera : public SDLGameObject
+class camera : public Player
 {
 public:
-    Camera(const LoaderParams* pParams);
-    SDL_Rect CameraRect = {
-   CameraRect.x = 0,
-   CameraRect.y = 0,
-   CameraRect.w = SCREEN_WIDTH,
-   CameraRect.h = SCREEN_HEIGHT,
-    };
-    virtual void update();
-    virtual void draw();
+	const int LEVEL_WIDTH = 1280;
+	const int LEVEL_HEIGHT = 960;
+
+	//Screen dimension constants
+	const int SCREEN_WIDTH = 640;
+	const int SCREEN_HEIGHT = 480;
+
+	SDL_Rect Camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
+
+	void setCamera();
 };

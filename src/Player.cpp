@@ -6,9 +6,6 @@ Player::Player(const LoaderParams* pParams) : SDLGameObject(pParams)
     playerCollider.y = m_position.getY();
     playerCollider.w = pParams->getWidth();
     playerCollider.h = pParams->getHeight();
-
-    camera.x = (m_position.getX() + pParams->getWidth() / 2) - SCREEN_WIDTH / 2;
-    camera.y = (m_position.getY() + pParams->getHeight() / 2) - SCREEN_HEIGHT / 2;
 }
 void Player::draw()
 {
@@ -20,12 +17,12 @@ void Player::update()
     playerCollider.y = m_position.getY();
     std::cout << playerCollider.x <<"/" << playerCollider.y << "/" << playerCollider.w <<"/"<< playerCollider.h << std::endl;
 	handleInput();
-    setCamera();
 	SDLGameObject::update();
 }
 void Player::handleInput()
 {
     m_currentFrame = ((SDL_GetTicks() / 100) % 1);
+
    if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT)) {
        m_velocity.setX(5);
        flip = SDL_FLIP_NONE;
@@ -61,25 +58,4 @@ void Player::Jumping()
 {
     m_acceleration.setY(-12);
     isjumping = false;
-}
-void Player::setCamera()
-{
-    //Keep the camera in bounds
-    
-    if (camera.x < 0)
-    {
-        camera.x = 0;
-    }
-    if (camera.y < 0)
-    {
-        camera.y = 0;
-    }
-    if (camera.x > LEVEL_WIDTH - camera.w)
-    {
-        camera.x = LEVEL_WIDTH - camera.w;
-    }
-    if (camera.y > LEVEL_HEIGHT - camera.h)
-    {
-        camera.y = LEVEL_HEIGHT - camera.h;
-    }
 }

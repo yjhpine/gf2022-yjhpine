@@ -34,6 +34,10 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 	{
 		return false;
 	}
+	if (!TheTextureManager::Instance()->load("assets/bg.png", "BG", m_pRenderer))
+	{
+		return false;
+	}
 
 	m_gameObjects.push_back(new Player(new LoaderParams(0, 0, 32, 32, "animate")));
 	std::cout << m_gameObjects.size() << std::endl;
@@ -54,6 +58,10 @@ void Game::render()
 	SDL_RenderClear(m_pRenderer);
 
 	SDL_SetRenderDrawColor(m_pRenderer, 255, 0, 0, 0);
+
+	TextureManager::Instance()->draw("BG", 0, 0, 640, 480, m_pRenderer, SDL_FLIP_NONE);
+
+
 
 	for (int i = 0; i != m_gameObjects.size(); i++) {
 		m_gameObjects[i]->draw();

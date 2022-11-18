@@ -42,7 +42,7 @@
     <ClCompile Include="src\Collision.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="src\Camera.cpp">
+    <ClCompile Include="src\camera.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -347,7 +347,7 @@
     <ClInclude Include="include\Collision.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="include\Camera.h">
+    <ClInclude Include="include\camera.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -436,6 +436,9 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="assets\defaultmap123.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="assets\bg.png">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

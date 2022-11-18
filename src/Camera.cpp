@@ -1,30 +1,24 @@
-#include "Camera.h"
+#include "camera.h"
 
-Camera::Camera(const LoaderParams* pParams) : SDLGameObject(pParams) {}
-void Camera::update()
+void camera::setCamera()
 {
-    CameraRect.x = (m_position.getX()+ 32) - SCREEN_WIDTH / 2;
-    CameraRect.y = (m_position.getY() + 32) - SCREEN_HEIGHT / 2;
+    Camera.x = (m_position.getX() + 16) - SCREEN_WIDTH / 2;
+    Camera.y = (m_position.getY() + 16) - SCREEN_HEIGHT / 2;
 
-    //Keeping the Camera in bounds
-    if (CameraRect.x < 0)
+    if (Camera.x < 0)
     {
-        CameraRect.x = 0;
+        Camera.x = 0;
     }
-    if (CameraRect.y < 0)
+    if (Camera.y < 0)
     {
-        CameraRect.y = 0;
+        Camera.y = 0;
     }
-    if (CameraRect.x > LEVEL_WIDTH - CameraRect.w)
+    if (Camera.x > LEVEL_WIDTH - Camera.w)
     {
-        CameraRect.x = LEVEL_WIDTH - CameraRect.w;
+        Camera.x = LEVEL_WIDTH - Camera.w;
     }
-    if (CameraRect.y  > LEVEL_HEIGHT - CameraRect.h)
+    if (Camera.y > LEVEL_HEIGHT - Camera.h)
     {
-        CameraRect.y = LEVEL_HEIGHT - CameraRect.h;
+        Camera.y = LEVEL_HEIGHT - Camera.h;
     }
-}
-void Camera::draw()
-{
-    SDLGameObject::draw(flip);
 }
