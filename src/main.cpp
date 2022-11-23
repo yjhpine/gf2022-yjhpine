@@ -5,7 +5,7 @@ const int DELAY_TIME = 1000.0f / FPS;
 
 int main(int argc, char* argv[])
 {
-    if (TheGame::Instance()->init("Chapter 1", 100, 100, 640, 480, SDL_WINDOW_SHOWN))
+    if (TheGame::Instance()->init("Chapter 1", 150, 100, 640, 480, SDL_WINDOW_SHOWN))
     {
         Uint32 frameStart, frameTime;
         while (TheGame::Instance()->running()) {

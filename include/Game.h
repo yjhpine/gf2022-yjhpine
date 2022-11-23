@@ -3,8 +3,8 @@
 #include "GameObject.h"
 #include "Player.h"
 #include "InputHandler.h"
-#include "main.h"
 #include "TextureManager.h"
+#include "SDLGameObject.h"
 
 
 class Game
