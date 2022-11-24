@@ -39,6 +39,7 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 	}
 
 	m_gameObjects.push_back(new Player(new LoaderParams(0, 0, 32, 32, "animate")));
+	m_gameObjects.push_back(new camera(new LoaderParams(0, 0, 640, 480, "cam")));
 
 	m_bRunning = true;
 	return true;
@@ -58,11 +59,9 @@ void Game::render()
 	SDL_SetRenderDrawColor(m_pRenderer, 255, 0, 0, 0);
 
 	TextureManager::Instance()->draw("BG", 0, 0, 640, 480, m_pRenderer, SDL_FLIP_NONE);
-
 	for (int i = 0; i != m_gameObjects.size(); i++) {
 		m_gameObjects[i]->draw();
 	}
-	//SDL_RenderDrawRect(m_pRenderer, );
 
 	SDL_RenderPresent(m_pRenderer);
 }

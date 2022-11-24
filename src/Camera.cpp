@@ -1,5 +1,6 @@
 #include "camera.h"
 
+camera::camera(const LoaderParams* pParams) : SDLGameObject(pParams) {}
 void camera::setCamera()
 {
     Camera.x = (m_position.getX() + 16) - SCREEN_WIDTH / 2;
