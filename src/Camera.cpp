@@ -1,10 +1,9 @@
 #include "camera.h"
 
-camera::camera(const LoaderParams* pParams) : SDLGameObject(pParams) {}
-
+camera::camera(const LoaderParams* pParams) : Player(pParams) {}
 void camera::draw()
 {
-    SDL_RenderDrawRect(Game::Instance()->getRenderer(), &Camera);
+    TheTextureManager::Instance()->draw("cam", m_position.getX() - Camera.x, m_position.getY() - Camera.y, Camera.w, Camera.h, TheGame::Instance()->getRenderer());
 }
 void camera::clean() {}
 void camera::update()
@@ -28,4 +27,6 @@ void camera::update()
     {
         Camera.y = LEVEL_HEIGHT - Camera.h;
     }
+    
+    std::cout << Camera.x << "/" << Camera.y << "/" << Camera.w << "/" << Camera.h << std::endl;
 }

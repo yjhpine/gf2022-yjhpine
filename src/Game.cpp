@@ -6,7 +6,7 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
-		m_pWindow = SDL_CreateWindow(title, xpos, ypos, w, h, flags);
+		m_pWindow = SDL_CreateWindow(title, xpos, ypos, 640,  480, flags);
 		if (m_pWindow != 0)
 		{
 			m_pRenderer = SDL_CreateRenderer(m_pWindow, -1, 0);
@@ -38,8 +38,9 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 		return false;
 	}
 
-	m_gameObjects.push_back(new Player(new LoaderParams(0, 0, 32, 32, "animate")));
+	m_gameObjects.push_back(new Player(new LoaderParams(100, 100, 32, 32, "animate")));
 	m_gameObjects.push_back(new camera(new LoaderParams(0, 0, 640, 480, "cam")));
+
 
 	m_bRunning = true;
 	return true;
@@ -58,7 +59,8 @@ void Game::render()
 
 	SDL_SetRenderDrawColor(m_pRenderer, 255, 0, 0, 0);
 
-	TextureManager::Instance()->draw("BG", 0, 0, 640, 480, m_pRenderer, SDL_FLIP_NONE);
+	TextureManager::Instance()->draw("BG", 0, 0, 1280, 960, m_pRenderer, SDL_FLIP_NONE);
+	
 	for (int i = 0; i != m_gameObjects.size(); i++) {
 		m_gameObjects[i]->draw();
 	}

@@ -4,9 +4,7 @@
 #include "Player.h"
 #include "InputHandler.h"
 #include "TextureManager.h"
-//#include "SDLGameObject.h"
-#include "camera.h"
-
+#include "Camera.h"
 
 class Game
 {

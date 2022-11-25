@@ -15,13 +15,12 @@ void Player::update()
 {
     playerCollider.x = m_position.getX();
     playerCollider.y = m_position.getY();
-    std::cout << playerCollider.x <<"/" << playerCollider.y << "/" << playerCollider.w <<"/"<< playerCollider.h << std::endl;
 	handleInput();
 	SDLGameObject::update();
 }
 void Player::handleInput()
 {
-    m_currentFrame = ((SDL_GetTicks() / 100) % 1);
+    m_currentFrame = ((SDL_GetTicks() / 100) % 1);//idle상태 애니메이션
 
    if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT)) {
        m_velocity.setX(5);
@@ -54,7 +53,7 @@ void Player::handleInput()
 
    if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_DOWN)) {
        m_velocity.setY(4);
-       if (m_position.getY() > 960)
+       if (m_position.getY() + 32 > 960)
        {
            m_velocity.setY(0);
        }
@@ -75,3 +74,4 @@ void Player::clean() {}
 //    m_acceleration.setY(-12);
 //    isjumping = false;
 //}
+
