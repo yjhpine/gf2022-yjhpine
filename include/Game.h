@@ -5,6 +5,8 @@
 #include "InputHandler.h"
 #include "TextureManager.h"
 #include "Camera.h"
+#include "BG.h"
+
 
 class Game
 {

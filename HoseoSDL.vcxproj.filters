@@ -45,6 +45,13 @@
     <ClCompile Include="src\camera.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+<<<<<<< HEAD
+    <ClCompile Include="src\BG.cpp">
+=======
+    <ClCompile Include="src\Tile.cpp">
+>>>>>>> 867cf49ee29086de1d32f96e63a0c79889084ee2
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\main.h">
@@ -348,6 +355,13 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="include\camera.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+<<<<<<< HEAD
+    <ClInclude Include="include\BG.h">
+=======
+    <ClInclude Include="include\Tile.h">
+>>>>>>> 867cf49ee29086de1d32f96e63a0c79889084ee2
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

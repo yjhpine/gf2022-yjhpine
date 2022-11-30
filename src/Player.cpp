@@ -9,13 +9,14 @@ Player::Player(const LoaderParams* pParams) : SDLGameObject(pParams)
 }
 void Player::draw()
 {
-	SDLGameObject::draw(flip);
+	SDLGameObject::draw(flip, Camera.x, Camera.y);
 }
 void Player::update()
 {
     playerCollider.x = m_position.getX();
     playerCollider.y = m_position.getY();
 	handleInput();
+    setCamera();
 	SDLGameObject::update();
 }
 void Player::handleInput()
@@ -69,6 +70,30 @@ void Player::handleInput()
   //}
 }
 void Player::clean() {}
+void Player::setCamera()
+{
+    Camera.x = (m_position.getX() + 16) - SCREEN_WIDTH / 2;
+    Camera.y = (m_position.getY() + 16) - SCREEN_HEIGHT / 2;
+
+    if (Camera.x < 0)
+    {
+        Camera.x = 0;
+    }
+    if (Camera.y < 0)
+    {
+        Camera.y = 0;
+    }
+    if (Camera.x > LEVEL_WIDTH - Camera.w)
+    {
+        Camera.x = LEVEL_WIDTH - Camera.w;
+    }
+    if (Camera.y > LEVEL_HEIGHT - Camera.h)
+    {
+        Camera.y = LEVEL_HEIGHT - Camera.h;
+    }
+    std::cout << Camera.x << "/" << Camera.y << "/" << Camera.w << "/" << Camera.h << std::endl;
+    std::cout << m_position.getX() << "/" << m_position.getY() << std::endl;
+}
 //void Player::Jumping()
 //{
 //    m_acceleration.setY(-12);

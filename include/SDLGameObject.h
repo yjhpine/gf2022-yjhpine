@@ -4,10 +4,10 @@
 class SDLGameObject : public GameObject {
 public:
 	SDLGameObject(const LoaderParams* pParams);
-	virtual void draw(SDL_RendererFlip flip);
+	virtual void draw(SDL_RendererFlip flip, int x, int y);
 	virtual void update();
 	virtual void clean() {}
-	void Gravity();
+	//void Gravity();
 	virtual ~SDLGameObject() {}
 
 protected:

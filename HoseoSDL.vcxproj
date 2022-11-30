@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\BG.cpp" />
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\Collision.cpp" />
     <ClCompile Include="src\Game.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\SDLGameObject.cpp" />
     <ClCompile Include="src\TextureManager.cpp" />
+    <ClCompile Include="src\Tile.cpp" />
     <ClCompile Include="src\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -244,6 +246,7 @@
     <ClInclude Include="3rdParty\SDL\include\SDL2\SDL_version.h" />
     <ClInclude Include="3rdParty\SDL\include\SDL2\SDL_video.h" />
     <ClInclude Include="3rdParty\SDL\include\SDL2\SDL_vulkan.h" />
+    <ClInclude Include="include\BG.h" />
     <ClInclude Include="include\camera.h" />
     <ClInclude Include="include\Collision.h" />
     <ClInclude Include="include\Game.h" />
@@ -254,6 +257,7 @@
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\SDLGameObject.h" />
     <ClInclude Include="include\TextureManager.h" />
+    <ClInclude Include="include\Tile.h" />
     <ClInclude Include="include\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
