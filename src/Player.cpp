@@ -1,4 +1,6 @@
 #include "Player.h"
+#include "TextureManager.h"
+#include "Game.h"
 
 Player::Player(const LoaderParams* pParams) : SDLGameObject(pParams)
 {
@@ -9,7 +11,11 @@ Player::Player(const LoaderParams* pParams) : SDLGameObject(pParams)
 }
 void Player::draw()
 {
-	SDLGameObject::draw(flip);
+    TheTextureManager::Instance()->draw("BG",
+        -Camera.x, -Camera.y,
+        1280, 960, 
+        TheGame::Instance()->getRenderer(), SDL_FLIP_NONE);
+	SDLGameObject::draw(flip, m_position.getX() - Camera.x, m_position.getY() - Camera.y);
 }
 void Player::update()
 {
@@ -17,6 +23,27 @@ void Player::update()
     playerCollider.y = m_position.getY();
 	handleInput();
 	SDLGameObject::update();
+
+    //Camera
+    Camera.x = (m_position.getX() + 16) - SCREEN_WIDTH / 2;
+    Camera.y = (m_position.getY() + 16) - SCREEN_HEIGHT / 2;
+
+    if (Camera.x < 0)
+    {
+        Camera.x = 0;
+    }
+    if (Camera.y < 0)
+    {
+        Camera.y = 0;
+    }
+    if (Camera.x > LEVEL_WIDTH - Camera.w)
+    {
+        Camera.x = LEVEL_WIDTH - Camera.w;
+    }
+    if (Camera.y > LEVEL_HEIGHT - Camera.h)
+    {
+        Camera.y = LEVEL_HEIGHT - Camera.h;
+    }
 }
 void Player::handleInput()
 {
@@ -74,4 +101,3 @@ void Player::clean() {}
 //    m_acceleration.setY(-12);
 //    isjumping = false;
 //}
-
