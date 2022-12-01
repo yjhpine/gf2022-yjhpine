@@ -45,6 +45,9 @@
     <ClCompile Include="src\BG.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="src\TileLayer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\main.h">
@@ -350,6 +353,15 @@
     <ClInclude Include="include\BG.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="include\Layer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameMap.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TileLayer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="3rdParty\SDL\lib\.DS_Store" />
@@ -359,6 +371,7 @@
     <None Include="3rdParty\SDL\lib\x64\SDL2_image.dll" />
     <None Include="3rdParty\SDL\lib\x64\SDL2_mixer.dll" />
     <None Include="3rdParty\SDL\lib\x64\SDL2_ttf.dll" />
+    <None Include="assets\map.tmx" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="3rdParty\SDL\lib\x64\SDL2_image.lib" />

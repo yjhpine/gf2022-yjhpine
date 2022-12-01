@@ -29,14 +29,10 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 		return false;
 	}
 	
-	if (!TheTextureManager::Instance()->load("assets/characters.png", "animate", m_pRenderer))
-	{
-		return false;
-	}
-	if (!TheTextureManager::Instance()->load("assets/bg.png", "BG", m_pRenderer))
-	{
-		return false;
-	}
+	if (!TheTextureManager::Instance()->load("assets/characters.png", "animate", m_pRenderer)){return false;}
+	if (!TheTextureManager::Instance()->load("assets/bg.png", "BG", m_pRenderer)) {return false;}
+	
+	
 
 	m_gameObjects.push_back(new BG(new LoaderParams(0, 0, 1280, 960, "BG")));
 	m_gameObjects.push_back(new Player(new LoaderParams(100, 100, 32, 32, "animate")));
@@ -55,7 +51,7 @@ void Game::render()
 {
 	SDL_SetRenderDrawColor(m_pRenderer, 125, 218, 250, 255);
 	SDL_RenderClear(m_pRenderer);
-	
+
 	for (int i = 0; i != m_gameObjects.size(); i++) {
 		m_gameObjects[i]->draw();
 	}

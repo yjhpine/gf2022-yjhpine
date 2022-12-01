@@ -151,6 +151,7 @@
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\SDLGameObject.cpp" />
     <ClCompile Include="src\TextureManager.cpp" />
+    <ClCompile Include="src\TileLayer.cpp" />
     <ClCompile Include="src\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -247,13 +248,16 @@
     <ClInclude Include="include\BG.h" />
     <ClInclude Include="include\Collision.h" />
     <ClInclude Include="include\Game.h" />
+    <ClInclude Include="include\GameMap.h" />
     <ClInclude Include="include\GameObject.h" />
     <ClInclude Include="include\InputHandler.h" />
+    <ClInclude Include="include\Layer.h" />
     <ClInclude Include="include\LoaderParams.h" />
     <ClInclude Include="include\main.h" />
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\SDLGameObject.h" />
     <ClInclude Include="include\TextureManager.h" />
+    <ClInclude Include="include\TileLayer.h" />
     <ClInclude Include="include\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
@@ -264,6 +268,7 @@
     <None Include="3rdParty\SDL\lib\x64\SDL2_image.dll" />
     <None Include="3rdParty\SDL\lib\x64\SDL2_mixer.dll" />
     <None Include="3rdParty\SDL\lib\x64\SDL2_ttf.dll" />
+    <None Include="assets\map.tmx" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="3rdParty\SDL\lib\x64\SDL2.lib" />
