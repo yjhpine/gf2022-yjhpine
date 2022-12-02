@@ -11,10 +11,8 @@ Player::Player(const LoaderParams* pParams) : SDLGameObject(pParams)
 }
 void Player::draw()
 {
-    TheTextureManager::Instance()->draw("BG",
-        -Camera.x, -Camera.y,
-        1280, 960, 
-        TheGame::Instance()->getRenderer(), SDL_FLIP_NONE);
+    TheTextureManager::Instance()->draw("BG", -Camera.x, -Camera.y,
+        LEVEL_WIDTH, LEVEL_HEIGHT, TheGame::Instance()->getRenderer(), SDL_FLIP_NONE);
 	SDLGameObject::draw(flip, m_position.getX() - Camera.x, m_position.getY() - Camera.y);
 }
 void Player::update()
@@ -23,10 +21,22 @@ void Player::update()
     playerCollider.y = m_position.getY();
 	handleInput();
 	SDLGameObject::update();
-
+    
     //Camera
     Camera.x = (m_position.getX() + 16) - SCREEN_WIDTH / 2;
     Camera.y = (m_position.getY() + 16) - SCREEN_HEIGHT / 2;
+
+    if (m_position.getY() + 32 <= 960)
+    {
+        Gravity();
+    }
+
+    if (m_position.getY() + 36 > 960)
+    {
+        m_velocity.setY(0);
+        m_gravitySpeed.setY(0);
+        m_acceleration.setY(0);
+    }
 
     if (Camera.x < 0)
     {
@@ -44,6 +54,7 @@ void Player::update()
     {
         Camera.y = LEVEL_HEIGHT - Camera.h;
     }
+    std::cout << m_position.getY() << std::endl;
 }
 void Player::handleInput()
 {
@@ -86,18 +97,18 @@ void Player::handleInput()
        }
        m_currentFrame = ((SDL_GetTicks() / 100) % 4);
    }
-  //if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE)) {
-  //    isjumping = TheInputHandler::Instance()->isJumping();
-  //    m_currentFrame = 5 + ((SDL_GetTicks() / 400) % 3);
-  //    if (isjumping == true) 
-  //    { 
-  //       Jumping();
-  //    }
-  //}
+  if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE)) {
+      isjumping = TheInputHandler::Instance()->isJumping();
+      m_currentFrame = 5 + ((SDL_GetTicks() / 400) % 3);
+      if (isjumping == true) 
+      { 
+         Jumping();
+      }
+  }
 }
 void Player::clean() {}
-//void Player::Jumping()
-//{
-//    m_acceleration.setY(-12);
-//    isjumping = false;
-//}
+void Player::Jumping()
+{
+    m_acceleration.setY(-20);
+    isjumping = false;
+}

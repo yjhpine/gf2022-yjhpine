@@ -7,12 +7,12 @@ public:
 	virtual void draw(SDL_RendererFlip flip, int x, int y);
 	virtual void update();
 	virtual void clean() {}
-	//void Gravity();
+	void Gravity();
 	virtual ~SDLGameObject() {}
 
 protected:
-	//Vector2D m_gravitySpeed;
-	//Vector2D m_gravity;
+	Vector2D m_gravitySpeed;
+	Vector2D m_gravity;
 
 	Vector2D m_acceleration;
 	Vector2D m_velocity;

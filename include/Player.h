@@ -18,7 +18,7 @@ private:
 
 public:
     void handleInput();
-    //void Jumping();
+    void Jumping();
     virtual void draw();
     virtual void update();
     virtual void clean();
