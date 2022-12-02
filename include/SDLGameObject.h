@@ -16,7 +16,6 @@ protected:
 
 	Vector2D m_acceleration;
 	Vector2D m_velocity;
-
 	Vector2D m_position;
 
 	SDL_RendererFlip flip = SDL_FLIP_NONE;

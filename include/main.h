@@ -9,3 +9,5 @@
 #include "LoaderParams.h"
 #include "Vector2D.h"
 #include "Collision.h"
+#include <string>
+#include <fstream>
