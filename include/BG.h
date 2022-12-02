@@ -11,7 +11,6 @@ class BG : public SDLGameObject
 {
 private:
     SDL_Rect bg = { 0, 0, LEVEL_WIDTH, LEVEL_HEIGHT };
-    Player* ply;
 public:
     BG(const LoaderParams* pParams);
     virtual void draw();

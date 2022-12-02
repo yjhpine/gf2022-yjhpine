@@ -1,8 +1,8 @@
 #include "Level.h"
 #include "assets.h"
-#include "tmxlite/Map.h"
-#include "tmxlite/Layer.h"
-#include "tmxlite/TileLayer.h"
+#include "tmxlite/Map.hpp"
+#include "tmxlite/Layer.hpp"
+#include "tmxlite/TileLayer.hpp"
 #include <iostream>
 #include <algorithm>
 
