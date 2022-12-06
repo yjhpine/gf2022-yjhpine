@@ -45,13 +45,7 @@
     <ClCompile Include="src\BG.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="src\Level.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="src\assets.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="src\TileLayer.cpp">
+    <ClCompile Include="src\map.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -359,19 +353,7 @@
     <ClInclude Include="include\BG.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="include\Level.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="include\assets.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="include\tmxlite\Map.hpp">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="include\tmxlite\TileLayer.hpp">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="include\tmxlite\Layer.hpp">
+    <ClInclude Include="include\map.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -384,6 +366,7 @@
     <None Include="3rdParty\SDL\lib\x64\SDL2_mixer.dll" />
     <None Include="3rdParty\SDL\lib\x64\SDL2_ttf.dll" />
     <None Include="assets\example.tmx" />
+    <None Include="assets\map01.dat" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="3rdParty\SDL\lib\x64\SDL2_image.lib" />
@@ -467,6 +450,9 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="assets\city.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="assets\brick.png">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

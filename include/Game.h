@@ -5,6 +5,7 @@
 #include "InputHandler.h"
 #include "TextureManager.h"
 #include "BG.h"
+#include "map.h"
 
 class Game
 {

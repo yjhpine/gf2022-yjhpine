@@ -116,7 +116,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -142,18 +142,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\assets.cpp" />
-    <ClCompile Include="src\Level.cpp" />
     <ClCompile Include="src\BG.cpp" />
     <ClCompile Include="src\Collision.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\InputHandler.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\map.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\SDLGameObject.cpp" />
     <ClCompile Include="src\TextureManager.cpp" />
-    <ClCompile Include="src\TileLayer.cpp" />
     <ClCompile Include="src\Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -247,7 +245,6 @@
     <ClInclude Include="3rdParty\SDL\include\SDL2\SDL_version.h" />
     <ClInclude Include="3rdParty\SDL\include\SDL2\SDL_video.h" />
     <ClInclude Include="3rdParty\SDL\include\SDL2\SDL_vulkan.h" />
-    <ClInclude Include="include\assets.h" />
     <ClInclude Include="include\BG.h" />
     <ClInclude Include="include\Collision.h" />
     <ClInclude Include="include\Game.h" />
@@ -255,13 +252,10 @@
     <ClInclude Include="include\InputHandler.h" />
     <ClInclude Include="include\LoaderParams.h" />
     <ClInclude Include="include\main.h" />
-    <ClInclude Include="include\Level.h" />
+    <ClInclude Include="include\map.h" />
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\SDLGameObject.h" />
     <ClInclude Include="include\TextureManager.h" />
-    <ClInclude Include="include\tmxlite\Layer.hpp" />
-    <ClInclude Include="include\tmxlite\Map.hpp" />
-    <ClInclude Include="include\tmxlite\TileLayer.hpp" />
     <ClInclude Include="include\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
@@ -273,6 +267,7 @@
     <None Include="3rdParty\SDL\lib\x64\SDL2_mixer.dll" />
     <None Include="3rdParty\SDL\lib\x64\SDL2_ttf.dll" />
     <None Include="assets\example.tmx" />
+    <None Include="assets\map01.dat" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="3rdParty\SDL\lib\x64\SDL2.lib" />
@@ -292,6 +287,7 @@
     <Image Include="assets\Assets\fishtitle.png" />
     <Image Include="assets\Assets\rider.bmp" />
     <Image Include="assets\bg.png" />
+    <Image Include="assets\brick.png" />
     <Image Include="assets\characters.png" />
     <Image Include="assets\city.png" />
     <Image Include="assets\CuteDog.png" />

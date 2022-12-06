@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "TextureManager.h"
 #include "Game.h"
+#include "map.h"
 
 Player::Player(const LoaderParams* pParams) : SDLGameObject(pParams)
 {
@@ -11,8 +12,7 @@ Player::Player(const LoaderParams* pParams) : SDLGameObject(pParams)
 }
 void Player::draw()
 {
-    TheTextureManager::Instance()->draw("BG", -Camera.x, -Camera.y,
-        LEVEL_WIDTH, LEVEL_HEIGHT, TheGame::Instance()->getRenderer(), SDL_FLIP_NONE);
+    TheTextureManager::Instance()->draw("BG", -Camera.x, -Camera.y, LEVEL_WIDTH, LEVEL_HEIGHT, TheGame::Instance()->getRenderer(), SDL_FLIP_NONE);
 	SDLGameObject::draw(flip, m_position.getX() - Camera.x, m_position.getY() - Camera.y);
 }
 void Player::update()
@@ -26,7 +26,7 @@ void Player::update()
     Camera.x = (m_position.getX() + 16) - SCREEN_WIDTH / 2;
     Camera.y = (m_position.getY() + 16) - SCREEN_HEIGHT / 2;
 
-    if (m_position.getY() + 32 <= 960)
+    if (m_position.getY() + 36 < 960)
     {
         Gravity();
     }
