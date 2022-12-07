@@ -10,6 +10,7 @@ class Map : public SDLGameObject
 {
 public:
 	int tile[MAX_MAP_Y][MAX_MAP_X];
+	SDL_Rect tilemap[MAX_MAP_Y][MAX_MAP_X];
 
 	Map(const LoaderParams* pParams);
 	void loadMap(const char* name);

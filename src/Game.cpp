@@ -6,7 +6,7 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
-		m_pWindow = SDL_CreateWindow(title, xpos, ypos, 640,  480, flags);
+		m_pWindow = SDL_CreateWindow(title, xpos, ypos, 640, 480, flags);
 		if (m_pWindow != 0)
 		{
 			m_pRenderer = SDL_CreateRenderer(m_pWindow, -1, 0);
@@ -36,7 +36,7 @@ bool Game::init(const char* title, int xpos, int ypos, int w, int h, int flags)
 	
 	m_gameObjects.push_back(new BG(new LoaderParams(0, 0, 1280, 960, "BG")));
 	m_gameObjects.push_back(new Player(new LoaderParams(100, 100, 32, 32, "animate")));
-	//m_gameObjects.push_back(new Map(new LoaderParams(0, 0, 32, 32, "brick")));
+	m_gameObjects.push_back(new Map(new LoaderParams(0, 0, 32, 32, "brick")));
 
 	m_bRunning = true;
 	return true;
